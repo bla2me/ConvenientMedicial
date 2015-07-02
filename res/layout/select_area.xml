@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/Tv_select_area"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:background="#20AF65"
+        android:gravity="center"
+        android:text="@string/select_area"
+        android:textColor="#F5F5F5"
+        android:textSize="20sp" />
+
+    <ImageButton
+        android:id="@+id/Ib_left"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@null"
+        android:scaleType="fitXY"
+        android:src="@drawable/leftarrow" />
+
+    <ListView
+        android:id="@+id/LV_select_area"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/Tv_select_area"
+        android:background="#FFFFFF" >
+    </ListView>
+
+</RelativeLayout>
