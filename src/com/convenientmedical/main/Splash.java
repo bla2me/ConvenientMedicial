@@ -2,13 +2,14 @@ package com.convenientmedical.main;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.animation.AlphaAnimation;
 import android.widget.LinearLayout;
 
 public class Splash extends Activity {
-
+private SharedPreferences preferences;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		LinearLayout ll_splash_main;
@@ -22,7 +23,7 @@ public class Splash extends Activity {
 		      
 		    @Override  
 		    public void run() {  
-		        Intent  intent=new Intent(Splash.this, MainActivity.class);  
+		        Intent  intent=new Intent(Splash.this, LogIn.class);  
 		        startActivity(intent);  Splash.this.finish();   
 		    }  
 		}, 5000);  
