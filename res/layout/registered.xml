@@ -68,45 +68,11 @@
         android:hint="@string/againpassword"
         android:singleLine="true" />
 
-    <TextView
-        android:id="@+id/Tv_sexselect"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_below="@id/Et_againpassword"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
-        android:text="@string/sexselect"
-        android:textColor="#BFBFBF"
-        android:textSize="20sp" />
-
-    <RadioGroup
-        android:id="@+id/Rg_sexselect"
-        android:layout_width="200dp"
-        android:layout_height="35dp"
-        android:layout_below="@id/Et_againpassword"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="15dp"
-        android:layout_toRightOf="@+id/Tv_sexselect"
-        android:orientation="horizontal" >
-
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/male"
-            android:textColor="#BFBFBF" />
-
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/female"
-            android:textColor="#BFBFBF" />
-    </RadioGroup>
-
     <EditText
         android:id="@+id/Et_phonenumber"
         android:layout_width="match_parent"
         android:layout_height="35dp"
-        android:layout_below="@id/Rg_sexselect"
+        android:layout_below="@id/Et_againpassword"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="15dp"
@@ -114,20 +80,6 @@
         android:digits="0123456789-"
         android:ems="11"
         android:hint="@string/phonenumber"
-        android:singleLine="true" />
-
-    <EditText
-        android:id="@+id/Et_othersinfor"
-        android:layout_width="match_parent"
-        android:layout_height="35dp"
-        android:layout_below="@id/Et_phonenumber"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/editsharp2"
-        android:ems="10"
-        android:hint="@string/othersinfor"
-        android:inputType="text"
         android:singleLine="true" />
 
     <Button
