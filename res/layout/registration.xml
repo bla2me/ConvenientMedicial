@@ -95,6 +95,14 @@
             android:background="@null"
             android:scaleType="fitXY"
             android:src="@drawable/rightarrow_black" />
+                <ImageView
+            android:id="@+id/IM_divider_horizontal_line3"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_alignLeft="@+id/Tv_select_area"
+            android:layout_below="@+id/Tv_select_area"
+            android:scaleType="fitXY"
+            android:src="@drawable/divider_horizontal_line" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -142,6 +150,8 @@
             android:id="@+id/IM_divider_horizontal_line"
             android:layout_width="match_parent"
             android:layout_height="2dp"
+            android:layout_alignLeft="@+id/Tv_select_hosptical"
+            android:layout_below="@+id/Tv_select_hosptical"
             android:scaleType="fitXY"
             android:src="@drawable/divider_horizontal_line" />
     </RelativeLayout>
@@ -193,14 +203,16 @@
             android:background="@null"
             android:scaleType="fitXY"
             android:src="@drawable/rightarrow_black" />
-    </RelativeLayout>
 
-    <ImageView
-        android:id="@+id/IM_divider_horizontal_line2"
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/divider_horizontal_line" />
+        <ImageView
+            android:id="@+id/IM_divider_horizontal_line2"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_alignLeft="@+id/Tv_Select_Department"
+            android:layout_below="@+id/Tv_Select_Department"
+            android:scaleType="fitXY"
+            android:src="@drawable/divider_horizontal_line" />
+    </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/rl_4"
@@ -242,22 +254,22 @@
             android:background="@null"
             android:scaleType="fitXY"
             android:src="@drawable/rightarrow_black" />
-    </RelativeLayout>
 
-    <ImageView
-        android:id="@+id/IM_divider_horizontal_line3"
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:layout_alignLeft="@+id/Tv_select_doctor"
-        android:layout_below="@+id/IV_doc_icon"
-        android:scaleType="fitXY"
-        android:src="@drawable/divider_horizontal_line" />
+        <ImageView
+            android:id="@+id/IM_divider_horizontal_line4"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_alignLeft="@+id/Tv_select_doctor"
+            android:layout_below="@+id/IV_doc_icon"
+            android:scaleType="fitXY"
+            android:src="@drawable/divider_horizontal_line" />
+    </RelativeLayout>
 
     <Button
         android:id="@+id/BT_Reservation"
         android:layout_width="fill_parent"
         android:layout_height="35dp"
-        android:layout_below="@+id/IM_divider_horizontal_line3"
+        android:layout_below="@+id/rl_4"
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
         android:layout_marginTop="20dp"
