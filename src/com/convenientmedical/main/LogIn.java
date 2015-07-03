@@ -62,6 +62,7 @@ public class LogIn extends Activity implements OnClickListener {
 		case R.id.BT_landing:
 		default:
 			intent.setClass(getApplicationContext(), MainActivity.class);
+			startActivity(intent);
 			break;
 		}
 	}

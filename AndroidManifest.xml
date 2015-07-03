@@ -24,6 +24,19 @@
             </intent-filter>
         </activity>
         <activity android:name="com.convenientmedical.main.MainActivity" />
+        <activity android:name="com.convenientmedical.search.DoctorSearchResult"></activity>
+        <activity android:name="com.convenientmedical.main.SignUpActivity"></activity>
+        <activity android:name="com.convenientmedical.main.LogIn"></activity>
+        <activity android:name="com.convenientmedical.main.SelectDoctorList"></activity>
+        <activity android:name="com.convenientmedical.main.SelectCard"></activity>
+        <activity android:name="com.convenientmedical.main.SelectAreaList"></activity>
+        <activity android:name="com.convenientmedical.main.SelectHosActivity"></activity>
+        <activity android:name="com.convenientmedical.main.RegistratInfo"></activity>
+        <activity android:name="com.convenientmedical.pay.PayDetails"></activity>
+        <activity android:name="com.convenientmedical.main.RegVoucher"></activity>
+        <activity android:name="com.convenientmedical.main.SelectDepartmentActivity"></activity>
+        <activity android:name="com.convenientmedical.me.SocialCard"></activity>
+        <activity android:name="com.convenientmedical.pay.PayMethod"></activity>
     </application>
 
 </manifest>

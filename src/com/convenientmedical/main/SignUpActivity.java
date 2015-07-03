@@ -20,6 +20,7 @@ private EditText metUserName,metPwd,metRePwd;
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.registered);
+		initView();
 		mbtSignUp.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -27,6 +28,7 @@ private EditText metUserName,metPwd,metRePwd;
 				// TODO Auto-generated method stub
 				Intent intent=new Intent();
 				intent.setClass(getApplicationContext(), MainActivity.class);
+				startActivity(intent);
 			}
 		});
 	}

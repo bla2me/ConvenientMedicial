@@ -24,7 +24,7 @@
         <EditText
             android:id="@+id/Et_Search_doc_Tips"
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/logo"
             android:layout_marginLeft="120dp"
             android:layout_marginRight="30dp"
@@ -36,8 +36,8 @@
             android:imeOptions="actionSearch"
             android:inputType="text"
             android:singleLine="true"
-            android:textSize="15sp" />
-
+            android:textSize="15sp"
+             />
         <RelativeLayout
             android:layout_width="100dp"
             android:layout_height="90dp"
@@ -131,7 +131,7 @@
             android:background="#F5F5F5"
             android:gravity="left"
             android:paddingTop="5dp"
-            android:text="@string/select_hosptical"
+            android:text="@string/select_hos"
             android:textColor="#787878"
             android:textSize="20sp" />
 
@@ -189,7 +189,7 @@
             android:background="#F5F5F5"
             android:gravity="left"
             android:paddingTop="5dp"
-            android:text="@string/Select_Department"
+            android:text="@string/select_department"
             android:textColor="#787878"
             android:textSize="20sp" />
 
@@ -266,9 +266,10 @@
     </RelativeLayout>
 
     <Button
-        android:id="@+id/BT_Reservation"
+        android:id="@+id/bt_reservation"
+        android:textSize="18sp"
         android:layout_width="fill_parent"
-        android:layout_height="35dp"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/rl_4"
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
@@ -277,7 +278,6 @@
         android:gravity="center"
         android:paddingTop="10dp"
         android:text="@string/Reservation"
-        android:textColor="#FFFFFF"
-        android:textSize="15sp" />
+        android:textColor="#FFFFFF"/>
 
 </RelativeLayout>
