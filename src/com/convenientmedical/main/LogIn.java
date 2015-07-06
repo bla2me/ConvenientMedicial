@@ -1,14 +1,42 @@
 package com.convenientmedical.main;
 
+import java.io.UnsupportedEncodingException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import com.android.volley.AuthFailureError;
+import com.android.volley.NetworkResponse;
+import com.android.volley.ParseError;
+import com.android.volley.Request;
+import com.android.volley.Request.Method;
+import com.android.volley.Response;
+import com.android.volley.Response.ErrorListener;
+import com.android.volley.Response.Listener;
+import com.android.volley.RequestQueue;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.HttpHeaderParser;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.convenientmedical.net.JsonObjectPostRequest;
+import com.convenitentmedical.savedata.SharePreferenceUtil;
+
 import android.app.Activity;
 import android.app.DownloadManager.Request;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 /**
  * 登录
@@ -21,12 +49,20 @@ public class LogIn extends Activity implements OnClickListener {
 	private SharedPreferences preferences;// 保存登录状态和cookies
 	private Button mbtLogIn, mbtSignup, mbtNoLogIn;
 	private EditText mUserName, mPwd;
+	private String UserName,Pwd;
+	private HashMap<String, String> mHashmap;
+	private static final String Url="https://120.26.83.51/demo/user/login";
+	private RequestQueue requestqueue;
+	public String cookieFromResponse;
+    private String mHeader;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.log_in);
+		preferences=getPreferences(MODE_PRIVATE);
+		requestqueue=Volley.newRequestQueue(getApplicationContext());
 		initView();
 	}
 
@@ -62,8 +98,115 @@ public class LogIn extends Activity implements OnClickListener {
 			break;
 		case R.id.BT_landing:
 		default:
-			intent.setClass(getApplicationContext(), MainActivity.class);
-			startActivity(intent);
+			UserName=mUserName.getText().toString().trim();
+			Pwd=mPwd.getText().toString().trim();
+			if(UserName.equals("")||Pwd.equals(""))
+			{
+				Toast.makeText(getApplicationContext(), "用户名密码不能为空", Toast.LENGTH_SHORT).show();
+				break;
+			}
+			mHashmap=new HashMap<String, String>();
+			mHashmap.put("username", UserName);
+			mHashmap.put("password",Pwd);
+			Log.i("login", mHashmap.toString());
+			StringRequest stringRequest=new StringRequest(Method.POST, Url,new Listener<String>() {
+
+				@Override
+				public void onResponse(String response) {
+					// TODO Auto-generated method stub
+					Log.i("res", response.toString());
+				}
+			}, new ErrorListener() {
+
+				@Override
+				public void onErrorResponse(VolleyError error) {
+					// TODO Auto-generated method stub
+//					Log.i("res", error.getMessage());
+				}
+			}){
+
+				@Override
+				protected Map<String, String> getParams()
+						throws AuthFailureError {
+					// TODO Auto-generated method stub
+					return mHashmap;
+				}
+
+				@Override
+				protected Response<String> parseNetworkResponse(
+						NetworkResponse response) {
+					// TODO Auto-generated method stub
+					/*try {
+						String jsonString =
+						        new String(response.data, HttpHeaderParser.parseCharset(response.headers));
+					} catch (UnsupportedEncodingException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+		            mHeader = response.headers.toString();
+		            Log.w("LOG","get headers in parseNetworkResponse "+response.headers.toString());
+		            //使用正则表达式从reponse的头中提取cookie内容的子串
+		            Pattern pattern=Pattern.compile("Set-Cookie.*?;");
+		            Matcher m=pattern.matcher(mHeader);
+		            if(m.find()){
+		                cookieFromResponse =m.group();
+		                Log.w("LOG","cookie from server "+ cookieFromResponse);
+		            }
+		            //去掉cookie末尾的分号
+		            cookieFromResponse = cookieFromResponse.substring(11,cookieFromResponse.length()-1);
+		            Log.w("LOG","cookie substring "+ cookieFromResponse);
+		            String dataString = null;
+					try {
+						dataString = new String(response.data,"UTF-8");
+					} catch (UnsupportedEncodingException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}//返回值
+		            
+					return Response.success(dataString,
+		                    HttpHeaderParser.parseCacheHeaders(response));*/
+					
+					try {
+				          Map<String, String> responseHeaders = response.headers;
+				          String rawCookies = responseHeaders.get("Set-Cookie");//cookie值
+				          Log.i("cookie", rawCookies);
+				          String dataString = new String(response.data,"UTF-8");//返回值
+				          return Response.success(dataString,HttpHeaderParser.parseCacheHeaders(response));
+				      } catch (UnsupportedEncodingException e) {
+				 
+				          return Response.error(new ParseError(e));
+				      }
+				}
+				
+				
+			};
+			requestqueue.add(stringRequest);
+/*			JsonObjectPostRequest objectPostRequest=new JsonObjectPostRequest(Request.Method.POST,Url, new Response.Listener<JSONObject>() {
+
+				@Override
+				public void onResponse(JSONObject response) {
+					// TODO Auto-generated method stub
+					try {
+						SharePreferenceUtil.getInstanse().putStringData(preferences, "Cookies", response.getString("Cookie"));
+						Log.i("share", preferences.toString());
+						Log.i("status", (String) response.get("status"));
+					} catch (JSONException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+			}, new Response.ErrorListener() {
+
+				@Override
+				public void onErrorResponse(VolleyError error) {
+					// TODO Auto-generated method stub
+					Toast.makeText(getApplicationContext(), "网络错误，登录失败！", Toast.LENGTH_SHORT).show();
+				}
+			}, mHashmap);
+			requestqueue.add(objectPostRequest);*/
+			/*intent.setClass(getApplicationContext(), MainActivity.class);
+			startActivity(intent);*/
+			
 			break;
 		}
 	}

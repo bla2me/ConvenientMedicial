@@ -5,6 +5,10 @@
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.DEPENDENCIES"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="gen"/>
+<<<<<<< HEAD
 	<classpathentry kind="lib" path="G:/国赛/Sourse/ConvenientMedicial/libs/HttpsVolley.jar"/>
+=======
+	<classpathentry kind="lib" path="F:/ConvenientMedical/libs/HttpsVolley.jar"/>
+>>>>>>> d288c4af05a71dcbe37456ed2b8c9219e567ccad
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>

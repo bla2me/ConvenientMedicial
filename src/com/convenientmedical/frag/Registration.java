@@ -47,15 +47,7 @@ public class Registration extends Fragment {
 		mListView.setAdapter(new MyExpandablelistViewAdapter(getActivity()));
 		mListView.setGroupIndicator(null);
 		// 搜索事件
-		metSearch.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				metSearch.setFocusable(true);
-			}
-		});
-		/*metSearch.setOnEditorActionListener(new OnEditorActionListener() {
+	metSearch.setOnEditorActionListener(new OnEditorActionListener() {
 
 			@Override
 			public boolean onEditorAction(TextView v, int actionId,
@@ -68,7 +60,7 @@ public class Registration extends Fragment {
 				}
 				return false;
 			}
-		});*/
+		});
 		// 选择地区的点击事件
 		mrlChooseArea.setOnClickListener(new OnClickListener() {
 
