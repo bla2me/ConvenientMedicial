@@ -39,7 +39,7 @@ public class JsonObjectPostRequest extends Request<JSONObject> {
     protected Map<String, String> getParams() throws AuthFailureError {
         return mMap;
     }
-/*    @Override
+    @Override
     protected Response<JSONObject> parseNetworkResponse(NetworkResponse response) {
         try {
             String jsonString =
@@ -67,7 +67,7 @@ public class JsonObjectPostRequest extends Request<JSONObject> {
         } catch (JSONException je) {
             return Response.error(new ParseError(je));
         }
-    }*/
+    }
  
     @Override
     protected void deliverResponse(JSONObject response) {
@@ -82,10 +82,5 @@ public class JsonObjectPostRequest extends Request<JSONObject> {
         sendHeader.put("Cookie",cookie);
     }
 
-	@Override
-	protected Response<JSONObject> parseNetworkResponse(NetworkResponse arg0) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 }

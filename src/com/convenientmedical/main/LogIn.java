@@ -23,11 +23,11 @@ import com.android.volley.toolbox.HttpHeaderParser;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.convenientmedical.json.ParseLogAndSign;
 import com.convenientmedical.net.JsonObjectPostRequest;
 import com.convenitentmedical.savedata.SharePreferenceUtil;
 
 import android.app.Activity;
-import android.app.DownloadManager.Request;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -115,6 +115,15 @@ public class LogIn extends Activity implements OnClickListener {
 				public void onResponse(String response) {
 					// TODO Auto-generated method stub
 					Log.i("res", response.toString());
+					ParseLogAndSign login=new ParseLogAndSign();
+					if(login.getContent(response).equals("1"))
+					{
+						Toast.makeText(getApplicationContext(), "登录成功", Toast.LENGTH_SHORT).show();
+						Intent intent = new Intent();
+						intent.setClass(getApplicationContext(), MainActivity.class);
+						startActivity(intent);
+						SharePreferenceUtil.getInstanse().putIntData(preferences, "LOG_IN_STATUS", LOG_IN_STATUS);
+					}
 				}
 			}, new ErrorListener() {
 
@@ -136,7 +145,7 @@ public class LogIn extends Activity implements OnClickListener {
 				protected Response<String> parseNetworkResponse(
 						NetworkResponse response) {
 					// TODO Auto-generated method stub
-					/*try {
+					try {
 						String jsonString =
 						        new String(response.data, HttpHeaderParser.parseCharset(response.headers));
 					} catch (UnsupportedEncodingException e) {
@@ -144,7 +153,7 @@ public class LogIn extends Activity implements OnClickListener {
 						e.printStackTrace();
 					}
 		            mHeader = response.headers.toString();
-		            Log.w("LOG","get headers in parseNetworkResponse "+response.headers.toString());
+//		            Log.w("LOG","get headers in parseNetworkResponse "+response.headers.toString());
 		            //使用正则表达式从reponse的头中提取cookie内容的子串
 		            Pattern pattern=Pattern.compile("Set-Cookie.*?;");
 		            Matcher m=pattern.matcher(mHeader);
@@ -155,6 +164,8 @@ public class LogIn extends Activity implements OnClickListener {
 		            //去掉cookie末尾的分号
 		            cookieFromResponse = cookieFromResponse.substring(11,cookieFromResponse.length()-1);
 		            Log.w("LOG","cookie substring "+ cookieFromResponse);
+		            SharePreferenceUtil.getInstanse().putStringData(preferences, "Cookie", cookieFromResponse);
+		            Log.w("cookie", SharePreferenceUtil.getInstanse().getshareString(preferences, "Cookie"));
 		            String dataString = null;
 					try {
 						dataString = new String(response.data,"UTF-8");
@@ -164,49 +175,10 @@ public class LogIn extends Activity implements OnClickListener {
 					}//返回值
 		            
 					return Response.success(dataString,
-		                    HttpHeaderParser.parseCacheHeaders(response));*/
-					
-					try {
-				          Map<String, String> responseHeaders = response.headers;
-				          String rawCookies = responseHeaders.get("Set-Cookie");//cookie值
-				          Log.i("cookie", rawCookies);
-				          String dataString = new String(response.data,"UTF-8");//返回值
-				          return Response.success(dataString,HttpHeaderParser.parseCacheHeaders(response));
-				      } catch (UnsupportedEncodingException e) {
-				 
-				          return Response.error(new ParseError(e));
-				      }
+		                    HttpHeaderParser.parseCacheHeaders(response));
 				}
-				
-				
 			};
 			requestqueue.add(stringRequest);
-/*			JsonObjectPostRequest objectPostRequest=new JsonObjectPostRequest(Request.Method.POST,Url, new Response.Listener<JSONObject>() {
-
-				@Override
-				public void onResponse(JSONObject response) {
-					// TODO Auto-generated method stub
-					try {
-						SharePreferenceUtil.getInstanse().putStringData(preferences, "Cookies", response.getString("Cookie"));
-						Log.i("share", preferences.toString());
-						Log.i("status", (String) response.get("status"));
-					} catch (JSONException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-				}
-			}, new Response.ErrorListener() {
-
-				@Override
-				public void onErrorResponse(VolleyError error) {
-					// TODO Auto-generated method stub
-					Toast.makeText(getApplicationContext(), "网络错误，登录失败！", Toast.LENGTH_SHORT).show();
-				}
-			}, mHashmap);
-			requestqueue.add(objectPostRequest);*/
-			/*intent.setClass(getApplicationContext(), MainActivity.class);
-			startActivity(intent);*/
-			
 			break;
 		}
 	}

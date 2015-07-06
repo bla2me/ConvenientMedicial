@@ -20,4 +20,18 @@ public class SharePreferenceUtil {
 		editor.putString(key, value);
 		editor.apply();
 	}
+	public String getshareString(SharedPreferences preferences,String key)
+	{
+		return preferences.getString(key,"value");
+	}
+	public void putIntData(SharedPreferences preferences,String key,int value)
+	{
+		SharedPreferences.Editor editor=preferences.edit();
+		editor.putInt(key, value);
+		editor.apply();
+	}
+	public int getIntData(SharedPreferences preferences,String key)
+	{
+		return preferences.getInt(key, 0);
+	}
 }
