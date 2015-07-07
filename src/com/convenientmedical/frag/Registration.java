@@ -1,5 +1,9 @@
 package com.convenientmedical.frag;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
 import com.convenientmedical.adapter.MyExpandablelistViewAdapter;
 import com.convenientmedical.main.R;
 import com.convenientmedical.main.RegistratInfo;
@@ -12,6 +16,7 @@ import com.convenientmedical.search.DoctorSearchResult;
 import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,12 +24,17 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.webkit.WebView.FindListener;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ExpandableListView;
 import android.widget.RelativeLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
+import android.widget.Toast;
 
 /**
  * @author Mr.Codey 挂号fragment
@@ -32,10 +42,20 @@ import android.widget.TextView.OnEditorActionListener;
 public class Registration extends Fragment {
 
 	private View registrationView;
-	private ExpandableListView mListView;
 	private EditText metSearch;
 	private RelativeLayout mrlChooseArea, mSelectHos, mSelectDept, mSelectDoc;
 	private Button mbtReservation;
+	private Spinner mspinner;
+	private List<String> data_list;
+	private ArrayAdapter<String> arr_adapter;
+	private HashMap<String, String> mHash;// 存放搜索的方式及数据
+	private String searchMethod = "123";
+	private String searchContent;
+
+	public Registration() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -44,19 +64,30 @@ public class Registration extends Fragment {
 		registrationView = inflater.inflate(R.layout.registration, container,
 				false);
 		initView();
-		mListView.setAdapter(new MyExpandablelistViewAdapter(getActivity()));
-		mListView.setGroupIndicator(null);
+		setSpinnerAdapter();
+
 		// 搜索事件
-	metSearch.setOnEditorActionListener(new OnEditorActionListener() {
+		metSearch.setOnEditorActionListener(new OnEditorActionListener() {
 
 			@Override
 			public boolean onEditorAction(TextView v, int actionId,
 					KeyEvent event) {
 				// TODO Auto-generated method stub
 				if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-					Intent intent = new Intent(getActivity(),
-							DoctorSearchResult.class);
-					startActivity(intent);
+					searchContent = metSearch.getText().toString().trim();
+					if (searchContent.equals("")) {
+						Toast.makeText(getActivity(), "请输入内容！", Toast.LENGTH_SHORT).show();
+					} else {
+/*						mHash = new HashMap<String, String>();
+						mHash.put("searchmethod", searchMethod);
+						mHash.put("searchcontent", searchContent);
+						Log.i("hash", mHash.toString());*/
+						Intent intent = new Intent(getActivity(),
+								DoctorSearchResult.class);
+						intent.putExtra("search", new String[]{searchMethod,searchContent});
+						startActivity(intent);
+					}
+					
 				}
 				return false;
 			}
@@ -104,7 +135,7 @@ public class Registration extends Fragment {
 				startActivity(intent);
 			}
 		});
-		//预约挂号的点击事件
+		// 预约挂号的点击事件
 		mbtReservation.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -118,8 +149,6 @@ public class Registration extends Fragment {
 	}
 
 	private void initView() {
-		mListView = (ExpandableListView) registrationView
-				.findViewById(R.id.expandableListView_doc_or_hos);
 		mrlChooseArea = (RelativeLayout) registrationView
 				.findViewById(R.id.rl_1);
 		mSelectHos = (RelativeLayout) registrationView.findViewById(R.id.rl_2);
@@ -129,5 +158,61 @@ public class Registration extends Fragment {
 				.findViewById(R.id.Et_Search_doc_Tips);
 		mbtReservation = (Button) registrationView
 				.findViewById(R.id.bt_reservation);
+		mspinner = (Spinner) registrationView.findViewById(R.id.sp_doc_or_hos);
+	}
+
+	/**
+	 * spinner内容的添加和获取
+	 */
+	private void setSpinnerAdapter() {
+		data_list = new ArrayList<String>();
+		data_list.add("    医生");
+		data_list.add("    医院");
+
+		// 适配器
+		arr_adapter = new ArrayAdapter<String>(getActivity(),
+				R.layout.spinner_text, data_list);
+		// 设置样式
+		arr_adapter.setDropDownViewResource(R.layout.spinner_child_text);
+		// 加载适配器
+		mspinner.setAdapter(arr_adapter);
+		// 设置默认值
+		mspinner.setVisibility(View.VISIBLE);
+		mspinner.setOnItemSelectedListener(new OnItemSelectedListener() {
+
+			@Override
+			public void onItemSelected(AdapterView<?> parent, View view,
+					int position, long id) {
+				// TODO Auto-generated method stub
+				searchMethod = parent.getItemAtPosition(position).toString()
+						.trim();
+				Log.i("method", searchMethod);
+			}
+
+			@Override
+			public void onNothingSelected(AdapterView<?> parent) {
+				// TODO Auto-generated method stub
+				searchMethod = "医生";
+			}
+		});
+	}
+
+	/**
+	 * 获取搜索方式和内容
+	 * 
+	 * @param back
+	 */
+	public void getSearchContent(CallBack back) {
+			back.getResult(mHash);
+	}
+
+	/**
+	 * 回调接口 传输搜索方式和内容
+	 * 
+	 * @author Mr.Codey
+	 *
+	 */
+	public interface CallBack {
+		public void getResult(HashMap<String, String> result);
 	}
 }

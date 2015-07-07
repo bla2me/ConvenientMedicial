@@ -18,7 +18,7 @@ public class SharePreferenceUtil {
 	{
 		SharedPreferences.Editor editor=preferences.edit();
 		editor.putString(key, value);
-		editor.apply();
+		editor.commit();
 	}
 	public String getshareString(SharedPreferences preferences,String key)
 	{
@@ -28,7 +28,7 @@ public class SharePreferenceUtil {
 	{
 		SharedPreferences.Editor editor=preferences.edit();
 		editor.putInt(key, value);
-		editor.apply();
+		editor.commit();
 	}
 	public int getIntData(SharedPreferences preferences,String key)
 	{

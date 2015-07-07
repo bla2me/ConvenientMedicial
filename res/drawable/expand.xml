@@ -6,16 +6,12 @@
       </shape>   
 </item>   
 <!-- 主体背景颜色值 -->  
-<item android:bottom="1dp" android:right="1dp" android:top="1dp">   
+<item android:bottom="1dp" android:left="1dp" android:top="1dp">   
      <shape android:shape="rectangle">   
            <solid android:color="#F5F5F5" />  
              
-           <padding android:bottom="8dp"  
-                android:left="8dp"  
-                android:right="8dp"  
-                android:top="8dp" />  
-                <corners android:topRightRadius="1dp"
-        android:bottomRightRadius="1dp" />
+                <corners android:topLeftRadius="3dp"
+        android:bottomLeftRadius="3dp" />
      </shape>       
 </item>  
 </layer-list>  

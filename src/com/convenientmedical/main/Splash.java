@@ -8,6 +8,7 @@ import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.animation.AlphaAnimation;
 import android.widget.LinearLayout;
 
@@ -25,10 +26,10 @@ public class Splash extends Activity {
 		LinearLayout ll_splash_main;
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.splash);
-		preferences = getPreferences(MODE_PRIVATE);
+		preferences = getSharedPreferences("myshare", MODE_PRIVATE);
 		ll_splash_main = (LinearLayout) findViewById(R.id.ll_splash_main);
 		AlphaAnimation aa = new AlphaAnimation(0.1f, 1.0f);
-		aa.setDuration(10000);
+		aa.setDuration(1000);
 		ll_splash_main.startAnimation(aa);
 		new Handler().postDelayed(new Runnable() {
 
@@ -36,7 +37,7 @@ public class Splash extends Activity {
 			public void run() {
 				setMainActivity();
 			}
-		}, 5000);
+		}, 1000);
 
 	}
 
@@ -45,6 +46,8 @@ public class Splash extends Activity {
 	 */
 	private void setMainActivity() {
 		Intent intent = new Intent();
+		Log.e("logstatus",SharePreferenceUtil.getInstanse().getIntData(preferences,
+				"LOG_IN_STATUS")+"");
 		if (SharePreferenceUtil.getInstanse().getIntData(preferences,
 				"LOG_IN_STATUS") == 1) {
 			intent.setClass(getApplicationContext(), MainActivity.class);

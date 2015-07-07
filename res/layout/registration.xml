@@ -3,13 +3,14 @@
     android:id="@+id/RL_0"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginTop="-2dp"
     android:background="#F5F5F5"
-    android:orientation="vertical" >
+    android:padding="0dp" >
 
     <RelativeLayout
         android:id="@+id/Ll"
         android:layout_width="wrap_content"
-        android:layout_height="120dp"
+        android:layout_height="140dp"
         android:background="#20AF65" >
 
         <ImageView
@@ -18,7 +19,6 @@
             android:layout_height="60dp"
             android:layout_alignParentTop="true"
             android:background="@null"
-            android:scaleType="fitXY"
             android:src="@drawable/logo" />
 
         <EditText
@@ -36,24 +36,24 @@
             android:imeOptions="actionSearch"
             android:inputType="text"
             android:singleLine="true"
-            android:textSize="15sp"
-             />
+            android:textSize="18sp" />
+
         <RelativeLayout
-            android:layout_width="100dp"
-            android:layout_height="90dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/Et_Search_doc_Tips"
             android:layout_alignTop="@+id/Et_Search_doc_Tips"
             android:layout_marginLeft="20dp"
-            android:background="@null" >
+            android:background="@drawable/expand" >
 
-            <ExpandableListView
-                android:id="@+id/expandableListView_doc_or_hos"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
-               	android:scrollbars="none"
-                 >
-            </ExpandableListView>
+            <Spinner
+                android:popupBackground="#ffffff"
+                android:layout_marginTop="2dp"
+                android:id="@+id/sp_doc_or_hos"
+                android:layout_width="100dp"
+                android:layout_height="90dp"
+                
+                 />
         </RelativeLayout>
     </RelativeLayout>
 
@@ -89,7 +89,7 @@
 
         <ImageButton
             android:id="@+id/Ib_rightarrow_black"
-            android:layout_width="20dp"
+            android:layout_width="15dp"
             android:layout_height="20dp"
             android:layout_alignParentRight="true"
             android:layout_marginRight="20dp"
@@ -97,12 +97,14 @@
             android:background="@null"
             android:scaleType="fitXY"
             android:src="@drawable/rightarrow_black" />
-                <ImageView
+
+        <ImageView
             android:id="@+id/IM_divider_horizontal_line3"
             android:layout_width="match_parent"
             android:layout_height="2dp"
             android:layout_alignLeft="@+id/Tv_select_area"
             android:layout_below="@+id/Tv_select_area"
+            android:layout_marginTop="10dp"
             android:scaleType="fitXY"
             android:src="@drawable/divider_horizontal_line" />
     </RelativeLayout>
@@ -139,7 +141,7 @@
 
         <ImageButton
             android:id="@+id/Ib_rightarrow_black1"
-            android:layout_width="20dp"
+            android:layout_width="15dp"
             android:layout_height="20dp"
             android:layout_alignParentRight="true"
             android:layout_marginRight="20dp"
@@ -154,6 +156,7 @@
             android:layout_height="2dp"
             android:layout_alignLeft="@+id/Tv_select_hosptical"
             android:layout_below="@+id/Tv_select_hosptical"
+            android:layout_marginTop="10dp"
             android:scaleType="fitXY"
             android:src="@drawable/divider_horizontal_line" />
     </RelativeLayout>
@@ -197,7 +200,7 @@
 
         <ImageButton
             android:id="@+id/Ib_rightarrow_black2"
-            android:layout_width="20dp"
+            android:layout_width="15dp"
             android:layout_height="20dp"
             android:layout_alignParentRight="true"
             android:layout_marginRight="20dp"
@@ -212,6 +215,7 @@
             android:layout_height="2dp"
             android:layout_alignLeft="@+id/Tv_Select_Department"
             android:layout_below="@+id/Tv_Select_Department"
+            android:layout_marginTop="10dp"
             android:scaleType="fitXY"
             android:src="@drawable/divider_horizontal_line" />
     </RelativeLayout>
@@ -248,7 +252,7 @@
 
         <ImageButton
             android:id="@+id/Ib_rightarrow_black3"
-            android:layout_width="20dp"
+            android:layout_width="15dp"
             android:layout_height="20dp"
             android:layout_alignParentRight="true"
             android:layout_marginRight="20dp"
@@ -263,23 +267,24 @@
             android:layout_height="2dp"
             android:layout_alignLeft="@+id/Tv_select_doctor"
             android:layout_below="@+id/IV_doc_icon"
+            android:layout_marginTop="10dp"
             android:scaleType="fitXY"
             android:src="@drawable/divider_horizontal_line" />
     </RelativeLayout>
 
     <Button
         android:id="@+id/bt_reservation"
-        android:textSize="18sp"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/rl_4"
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="40dp"
         android:background="@drawable/editsharp1"
         android:gravity="center"
         android:paddingTop="10dp"
         android:text="@string/Reservation"
-        android:textColor="#FFFFFF"/>
+        android:textColor="#FFFFFF"
+        android:textSize="18sp" />
 
 </RelativeLayout>

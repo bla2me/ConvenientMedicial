@@ -37,21 +37,22 @@ public final class R {
         public static final int editsharp1=0x7f02000c;
         public static final int editsharp2=0x7f02000d;
         public static final int editsharp3=0x7f02000e;
-        public static final int hospital_icon=0x7f02000f;
-        public static final int ic_launcher=0x7f020010;
-        public static final int keshi_icon=0x7f020011;
-        public static final int leftarrow=0x7f020012;
-        public static final int line_x=0x7f020013;
-        public static final int location_icon=0x7f020014;
-        public static final int logo=0x7f020015;
-        public static final int me_logo=0x7f020016;
-        public static final int me_logo_hovered=0x7f020017;
-        public static final int my_head=0x7f020018;
-        public static final int news_logo=0x7f020019;
-        public static final int news_logo_hovered=0x7f02001a;
-        public static final int rightarrow_black=0x7f02001b;
-        public static final int search_icon=0x7f02001c;
-        public static final int splash=0x7f02001d;
+        public static final int expand=0x7f02000f;
+        public static final int hospital_icon=0x7f020010;
+        public static final int ic_launcher=0x7f020011;
+        public static final int keshi_icon=0x7f020012;
+        public static final int leftarrow=0x7f020013;
+        public static final int line_x=0x7f020014;
+        public static final int location_icon=0x7f020015;
+        public static final int logo=0x7f020016;
+        public static final int me_logo=0x7f020017;
+        public static final int me_logo_hovered=0x7f020018;
+        public static final int my_head=0x7f020019;
+        public static final int news_logo=0x7f02001a;
+        public static final int news_logo_hovered=0x7f02001b;
+        public static final int rightarrow_black=0x7f02001c;
+        public static final int search_icon=0x7f02001d;
+        public static final int splash=0x7f02001e;
     }
     public static final class id {
         public static final int BT_Add_modify_social_security_card=0x7f080054;
@@ -106,8 +107,8 @@ public final class R {
         public static final int Ib_rightarrow_black2=0x7f080089;
         public static final int Ib_rightarrow_black3=0x7f08008d;
         public static final int Iv_logo=0x7f08003f;
-        public static final int LV_select_area=0x7f080095;
-        public static final int LV_select_doctor=0x7f080098;
+        public static final int LV_select_area=0x7f080096;
+        public static final int LV_select_doctor=0x7f080099;
         public static final int Ll=0x7f08007a;
         public static final int RB_Alipay=0x7f080065;
         public static final int RB_Quick_payment=0x7f080068;
@@ -184,11 +185,10 @@ public final class R {
         public static final int Tv_select_hosptical=0x7f080084;
         public static final int Tv_sex_age=0x7f080030;
         public static final int Tv_test_blood=0x7f08000e;
-        public static final int action_settings=0x7f08009b;
+        public static final int action_settings=0x7f08009c;
         public static final int bt_reservation=0x7f08008e;
         public static final int content=0x7f080000;
-        public static final int expandableListView_doc_or_hos=0x7f08007d;
-        public static final int ll_splash_main=0x7f08009a;
+        public static final int ll_splash_main=0x7f08009b;
         public static final int logo=0x7f08007b;
         public static final int me_image=0x7f080008;
         public static final int me_layout=0x7f080007;
@@ -203,13 +203,15 @@ public final class R {
         public static final int rl_2=0x7f080082;
         public static final int rl_3=0x7f080086;
         public static final int rl_4=0x7f08008a;
+        public static final int rl_top=0x7f080095;
         public static final int search_result_list=0x7f080091;
-        public static final int select_department_list=0x7f080097;
-        public static final int select_hospital_list=0x7f080099;
+        public static final int select_department_list=0x7f080098;
+        public static final int select_hospital_list=0x7f08009a;
+        public static final int sp_doc_or_hos=0x7f08007d;
         public static final int tv_area=0x7f080092;
         public static final int tv_doc_name=0x7f080094;
         public static final int tv_hos_name=0x7f080093;
-        public static final int tv_select_hos=0x7f080096;
+        public static final int tv_select_hos=0x7f080097;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
@@ -235,7 +237,9 @@ public final class R {
         public static final int select_department=0x7f030014;
         public static final int select_doctor=0x7f030015;
         public static final int select_hospital=0x7f030016;
-        public static final int splash=0x7f030017;
+        public static final int spinner_child_text=0x7f030017;
+        public static final int spinner_text=0x7f030018;
+        public static final int splash=0x7f030019;
     }
     public static final class menu {
         public static final int main=0x7f070000;

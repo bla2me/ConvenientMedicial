@@ -61,7 +61,7 @@ public class LogIn extends Activity implements OnClickListener {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.log_in);
-		preferences=getPreferences(MODE_PRIVATE);
+		preferences=getSharedPreferences("myshare", MODE_PRIVATE);
 		requestqueue=Volley.newRequestQueue(getApplicationContext());
 		initView();
 	}
@@ -102,7 +102,7 @@ public class LogIn extends Activity implements OnClickListener {
 			Pwd=mPwd.getText().toString().trim();
 			if(UserName.equals("")||Pwd.equals(""))
 			{
-				Toast.makeText(getApplicationContext(), "用户名密码不能为空", Toast.LENGTH_SHORT).show();
+				Toast.makeText(getApplicationContext(), "用户名密码不能为空!", Toast.LENGTH_SHORT).show();
 				break;
 			}
 			mHashmap=new HashMap<String, String>();
@@ -122,7 +122,10 @@ public class LogIn extends Activity implements OnClickListener {
 						Intent intent = new Intent();
 						intent.setClass(getApplicationContext(), MainActivity.class);
 						startActivity(intent);
+						finish();
 						SharePreferenceUtil.getInstanse().putIntData(preferences, "LOG_IN_STATUS", LOG_IN_STATUS);
+						Log.e("logstatus",SharePreferenceUtil.getInstanse().getIntData(preferences,
+								"LOG_IN_STATUS")+"");
 					}
 				}
 			}, new ErrorListener() {
@@ -153,7 +156,7 @@ public class LogIn extends Activity implements OnClickListener {
 						e.printStackTrace();
 					}
 		            mHeader = response.headers.toString();
-//		            Log.w("LOG","get headers in parseNetworkResponse "+response.headers.toString());
+		            Log.w("LOG","get headers in parseNetworkResponse "+response.headers.toString());
 		            //使用正则表达式从reponse的头中提取cookie内容的子串
 		            Pattern pattern=Pattern.compile("Set-Cookie.*?;");
 		            Matcher m=pattern.matcher(mHeader);
