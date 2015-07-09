@@ -5,6 +5,7 @@
     android:orientation="horizontal" >
 
     <TextView
+        android:id="@+id/tv_project"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:singleLine="true"
@@ -13,6 +14,7 @@
         android:textSize="18sp" />
 
     <TextView
+        android:id="@+id/tv_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="15dp"
@@ -22,6 +24,7 @@
         android:textSize="18sp" />
 
     <TextView
+        android:id="@+id/tv_queue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"

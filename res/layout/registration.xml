@@ -65,10 +65,10 @@
 
         <ImageView
             android:id="@+id/IV_place"
-            android:layout_width="25dp"
-            android:layout_height="35dp"
+            android:layout_width="20dp"
+            android:layout_height="30dp"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="25dp"
             android:background="@null"
             android:scaleType="fitXY"
             android:src="@drawable/location_icon" />
@@ -118,9 +118,9 @@
         <ImageView
             android:id="@+id/IV_hospital_icon"
             android:layout_width="30dp"
-            android:layout_height="35dp"
+            android:layout_height="25dp"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="25dp"
             android:background="@null"
             android:scaleType="fitXY"
             android:src="@drawable/hospital_icon" />
@@ -176,8 +176,8 @@
 
         <ImageView
             android:id="@+id/IV_keshi_icon"
-            android:layout_width="32dp"
-            android:layout_height="35dp"
+            android:layout_width="30dp"
+            android:layout_height="25dp"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="20dp"
             android:background="@null"
