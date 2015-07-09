@@ -5,10 +5,17 @@
     android:background="#F5F5F5"
     android:orientation="vertical" >
 
+    <TextView
+        android:id="@+id/top"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="#20AF65" />
+
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="170dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/top"
+        android:paddingBottom="20dp"
         android:layout_marginLeft="2dp"
         android:layout_marginRight="2dp"
         android:layout_marginTop="10dp"
@@ -16,12 +23,12 @@
         android:orientation="vertical" >
 
         <ImageButton
-            android:id="@+id/Ib_left"
-            android:layout_width="20dp"
+            android:id="@+id/Ib_back"
+            android:layout_width="15dp"
             android:layout_height="20dp"
             android:layout_alignParentLeft="true"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="12dp"
             android:background="@null"
             android:scaleType="fitXY"
             android:src="@drawable/leftarrow" />
@@ -29,14 +36,14 @@
         <TextView
             android:id="@+id/Tv_Payment_method"
             android:layout_width="fill_parent"
-            android:layout_height="20dp"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="45dp"
             android:layout_marginRight="45dp"
             android:layout_marginTop="10dp"
             android:gravity="center"
             android:text="@string/Payment_method"
-            android:textColor="#737373"
-            android:textSize="20sp" />
+            android:textColor="#4B4B4B"
+            android:textSize="22sp" />
 
         <ImageView
             android:id="@+id/IM_line_x"
@@ -53,13 +60,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/IM_line_x"
-            android:gravity="center" >
+            android:layout_centerInParent="true" >
 
             <RadioGroup
                 android:id="@+id/Rg_car_select"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="80dp"
+                android:layout_centerHorizontal="true"
                 android:layout_marginTop="20dp" >
 
                 <RadioButton
@@ -69,6 +76,7 @@
                     android:layout_height="wrap_content"
                     android:paddingLeft="10dp"
                     android:text="@string/Alipay"
+                    android:checked="true"
                     android:textSize="20sp" >
                 </RadioButton>
 
@@ -104,20 +112,21 @@
                     android:text="@string/Quick_payment"
                     android:textSize="20sp" >
                 </RadioButton>
-
-                <Button
-                    android:id="@+id/BT_sure"
-                    android:layout_width="fill_parent"
-                    android:layout_height="40dp"
-                    android:layout_below="@+id/RB_Quick_payment"
-                    android:layout_marginTop="20dp"
-                    android:background="@drawable/editsharp1"
-                    android:gravity="center"
-                    android:paddingTop="10dp"
-                    android:text="@string/sure"
-                    android:textColor="#FFFFFF"
-                    android:textSize="20sp" />
             </RadioGroup>
+
+            <Button
+                android:id="@+id/BT_sure"
+                android:layout_width="120dp"
+                android:layout_height="40dp"
+                android:layout_below="@+id/Rg_car_select"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/editsharp1"
+                android:gravity="center"
+                android:layout_centerHorizontal="true"
+                android:paddingTop="10dp"
+                android:text="@string/sure"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp" />
         </RelativeLayout>
     </RelativeLayout>
 

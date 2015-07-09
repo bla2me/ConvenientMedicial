@@ -12,14 +12,15 @@ import android.view.ViewGroup;
  * @author Mr.Codey
  * 资讯fragment
  */
-public class News extends Fragment {
-private View newsView;
+public class Diagnoses extends Fragment {
+private View diagView;
+//private ExpandableListView mexpandList;
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
-		newsView =inflater.inflate(R.layout.news, container,false);
-		return newsView;
+		diagView =inflater.inflate(R.layout.diagnoses, container,false);
+		return diagView;
 	}
 
 }

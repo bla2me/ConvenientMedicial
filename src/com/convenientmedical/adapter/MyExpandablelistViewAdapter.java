@@ -69,8 +69,8 @@ public class MyExpandablelistViewAdapter extends BaseExpandableListAdapter {
 			convertView = LayoutInflater.from(context)
 					.inflate(R.layout.doc_or_hos_group, parent,false);
 		}
-		ImageView iv = (ImageView) convertView
-				.findViewById(R.id.IV_doc_or_hos__group);
+		/*ImageView iv = (ImageView) convertView
+				.findViewById(R.id.IV_doc_or_hos__group);*/
 		TextView tv = (TextView) convertView
 				.findViewById(R.id.TV_doc_or_hos_group);
 

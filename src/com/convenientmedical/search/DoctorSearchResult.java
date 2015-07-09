@@ -3,16 +3,29 @@ package com.convenientmedical.search;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import org.json.JSONObject;
+
+import com.android.volley.AuthFailureError;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.convenientmedical.frag.Registration;
 import com.convenientmedical.frag.Registration.CallBack;
+import com.convenientmedical.json.ParseJson;
 import com.convenientmedical.main.R;
+import com.convenientmedical.net.AppController;
+import com.convenitentmedical.savedata.SharePreferenceUtil;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -25,7 +38,10 @@ public class DoctorSearchResult extends Activity {
 	private ListView mResultList;
 	private HashMap<String, Object> mHash;
 	private List<HashMap<String, Object>> mList;
-	private Registration registrationFrag;
+	private JSONObject jsonObject;
+	private static final String URL = "";
+	private static final String SEARCH_TAG = "";
+	private SharedPreferences preferences;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -33,17 +49,37 @@ public class DoctorSearchResult extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.search_result);
 		initView();
-		Intent intent=getIntent();
-		String[] s=intent.getStringArrayExtra("search");
-//		Bundle mbundle=new Bundle();
-		Log.i("bundle", s[0]+"   "+s[1]);
-//		registrationFrag=new Registration();
+		preferences = getSharedPreferences("myshare", MODE_PRIVATE);
+
+		// 返回按钮
+		mibBack.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				finish();
+			}
+		});
+		packageJson();
+		// Bundle mbundle=new Bundle();
+		// registrationFrag=new Registration();
+		// getContentFromFrag();
 		mList = new ArrayList<HashMap<String, Object>>();
-//		getContentFromFrag();
+		getResult();
 		addData();
-		SimpleAdapter adapter=new SimpleAdapter(getApplicationContext(), mList, R.layout.search_result_list, 
-				new String[]{"area","hospital","doctor"},new int[]{R.id.tv_area,R.id.tv_hos_name,R.id.tv_doc_name});
+		SimpleAdapter adapter = new SimpleAdapter(getApplicationContext(),
+				mList, R.layout.search_result_list, new String[] { "area",
+						"hospital", "doctor" }, new int[] { R.id.tv_area,
+						R.id.tv_hos_name, R.id.tv_doc_name });
 		mResultList.setAdapter(adapter);
+	}
+
+	private void packageJson() {
+		Intent intent = getIntent();
+		String[] s = intent.getStringArrayExtra("search");
+		Log.i("bundle", s[0] + "   " + s[1]);
+		jsonObject = ParseJson.getInstanse().packJson(1, s[1], "name");
+		Log.i("json", jsonObject.toString());
 	}
 
 	private void initView() {
@@ -52,21 +88,49 @@ public class DoctorSearchResult extends Activity {
 	}
 
 	private void addData() {
-		mHash=new HashMap<String, Object>();
+		mHash = new HashMap<String, Object>();
 		mHash.put("area", "地区");
 		mHash.put("hospital", "医院名");
 		mHash.put("doctor", "医生姓名");
 		mList.add(mHash);
 	}
-/*	public void getContentFromFrag()
-	{
-		registrationFrag.getSearchContent(new CallBack() {
-			
+
+	private void getResult() {
+		JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(URL,
+				jsonObject, new Response.Listener<JSONObject>() {
+
+					@Override
+					public void onResponse(JSONObject arg0) {
+						// TODO Auto-generated method stub
+
+					}
+				}, new Response.ErrorListener() {
+
+					@Override
+					public void onErrorResponse(VolleyError arg0) {
+						// TODO Auto-generated method stub
+
+					}
+				}) {
+
 			@Override
-			public void getResult(HashMap<String, String> mHash) {
+			public Map<String, String> getHeaders() throws AuthFailureError {
 				// TODO Auto-generated method stub
-				Log.i("hash", mHash.toString());
+				HashMap<String, String> mHeadHash = new HashMap<String, String>();
+				mHeadHash.put("Cookie", SharePreferenceUtil.getInstanse()
+						.getshareString(preferences, "Cookie"));
+				return mHeadHash;
 			}
-		});
-	}*/
+
+		};
+		AppController.getInstance().addToRequestQueue(jsonObjectRequest,
+				SEARCH_TAG);
+	}
+	/*
+	 * public void getContentFromFrag() { registrationFrag.getSearchContent(new
+	 * CallBack() {
+	 * 
+	 * @Override public void getResult(HashMap<String, String> mHash) { // TODO
+	 * Auto-generated method stub Log.i("hash", mHash.toString()); } }); }
+	 */
 }

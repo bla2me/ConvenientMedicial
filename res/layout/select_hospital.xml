@@ -16,7 +16,7 @@
             android:layout_centerInParent="true"
             android:text="@string/select_hos"
             android:textColor="#F5F5F5"
-            android:textSize="20sp" />
+            android:textSize="22sp" />
 
         <ImageButton
             android:id="@+id/Ib_back_to_main"

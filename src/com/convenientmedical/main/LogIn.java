@@ -24,7 +24,6 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.convenientmedical.json.ParseLogAndSign;
-import com.convenientmedical.net.JsonObjectPostRequest;
 import com.convenitentmedical.savedata.SharePreferenceUtil;
 
 import android.app.Activity;
@@ -166,7 +165,8 @@ public class LogIn extends Activity implements OnClickListener {
 		            }
 		            //去掉cookie末尾的分号
 		            cookieFromResponse = cookieFromResponse.substring(11,cookieFromResponse.length()-1);
-		            Log.w("LOG","cookie substring "+ cookieFromResponse);
+//		            Log.w("LOG","cookie substring "+ cookieFromResponse);
+		            //加入sharedpreference
 		            SharePreferenceUtil.getInstanse().putStringData(preferences, "Cookie", cookieFromResponse);
 		            Log.w("cookie", SharePreferenceUtil.getInstanse().getshareString(preferences, "Cookie"));
 		            String dataString = null;

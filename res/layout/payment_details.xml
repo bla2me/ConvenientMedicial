@@ -5,7 +5,15 @@
     android:background="#F5F5F5"
     android:orientation="vertical" >
 
+    <TextView 
+        android:layout_height="80dp"
+        android:layout_width="match_parent"
+        android:id="@+id/top"
+        android:background="#20AF65"
+        
+        />
     <RelativeLayout
+        android:layout_below="@+id/top"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#FFFFFF"
@@ -44,13 +52,14 @@
             android:src="@drawable/bg_header_top" />
 
         <ImageButton
-            android:id="@+id/Ib_left"
-            android:layout_width="20dp"
+            android:id="@+id/Ib_back"
+            android:layout_width="15dp"
             android:layout_height="20dp"
             android:layout_alignParentLeft="true"
+            android:layout_alignTop="@+id/Tv_Payment_details"
             android:layout_below="@+id/IM_divider_horizontal_line"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="4dp"
             android:background="@null"
             android:scaleType="fitXY"
             android:src="@drawable/leftarrow" />
@@ -58,15 +67,16 @@
         <TextView
             android:id="@+id/Tv_Payment_details"
             android:layout_width="fill_parent"
-            android:layout_height="20dp"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/IM_divider_horizontal_line"
             android:layout_marginLeft="45dp"
             android:layout_marginRight="45dp"
             android:layout_marginTop="10dp"
             android:gravity="center"
+            android:textStyle="bold"
             android:text="@string/Payment_details"
             android:textColor="#737373"
-            android:textSize="15sp" />
+            android:textSize="22sp" />
 
         <ImageView
             android:id="@+id/IM_line_x"
@@ -82,7 +92,7 @@
         <TextView
             android:id="@+id/Tv_Payment_item"
             android:layout_width="fill_parent"
-            android:layout_height="20dp"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/IM_line_x"
             android:layout_marginLeft="40dp"
             android:layout_marginRight="150dp"
@@ -90,81 +100,81 @@
             android:gravity="left"
             android:text="@string/Payment_item"
             android:textColor="#737373"
-            android:textSize="15sp" />
+            android:textSize="22sp" />
 
         <TextView
             android:id="@+id/Tv_Payment_item_result"
-            android:layout_width="fill_parent"
-            android:layout_height="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@+id/IM_bg_header_top1"
             android:layout_below="@+id/IM_line_x"
-            android:layout_marginLeft="150dp"
-            android:layout_marginRight="40dp"
+            android:layout_marginRight="30dp"
             android:layout_marginTop="10dp"
             android:gravity="right"
             android:text="@string/Payment_item_result"
             android:textColor="#737373"
-            android:textSize="15sp" />
+            android:textSize="22sp" />
 
         <TextView
             android:id="@+id/Tv_Payment_category"
-            android:layout_width="fill_parent"
-            android:layout_height="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/Tv_Payment_item_result"
             android:layout_marginLeft="40dp"
             android:layout_marginRight="150dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="10dp"
             android:gravity="left"
             android:text="@string/Payment_category"
             android:textColor="#737373"
-            android:textSize="15sp" />
+            android:textSize="22sp" />
 
         <TextView
             android:id="@+id/Tv_Payment_category_result"
-            android:layout_width="fill_parent"
-            android:layout_height="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@+id/IM_bg_header_top1"
             android:layout_below="@+id/Tv_Payment_item_result"
-            android:layout_marginLeft="150dp"
-            android:layout_marginRight="40dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="10dp"
             android:gravity="right"
             android:text="@string/Payment_category_result"
             android:textColor="#737373"
-            android:textSize="15sp" />
+            android:textSize="22sp" />
 
         <TextView
             android:id="@+id/Tv_Amount_of_money"
-            android:layout_width="fill_parent"
-            android:layout_height="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/Tv_Payment_category_result"
             android:layout_marginLeft="40dp"
             android:layout_marginRight="150dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="10dp"
             android:gravity="left"
             android:text="@string/Amount_of_money"
             android:textColor="#737373"
-            android:textSize="15sp" />
+            android:textSize="22sp" />
 
         <TextView
             android:id="@+id/Tv_Amount_of_money_result"
-            android:layout_width="fill_parent"
-            android:layout_height="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@+id/IM_bg_header_top1"
             android:layout_below="@+id/Tv_Payment_category_result"
-            android:layout_marginLeft="150dp"
-            android:layout_marginRight="40dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="10dp"
             android:gravity="right"
             android:text="@string/Amount_of_money_result"
             android:textColor="#737373"
-            android:textSize="15sp" />
+            android:textSize="22sp" />
 
         <TextView
             android:id="@+id/Tv_Medical_insurance"
-            android:layout_width="fill_parent"
-            android:layout_height="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@+id/IM_bg_header_top1"
             android:layout_below="@+id/Tv_Amount_of_money_result"
-            android:layout_marginLeft="150dp"
-            android:layout_marginRight="40dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="10dp"
             android:gravity="right"
             android:text="@string/Medical_insurance"
             android:textColor="#737373"
@@ -172,34 +182,34 @@
 
         <TextView
             android:id="@+id/Tv_Paid"
-            android:layout_width="fill_parent"
-            android:layout_height="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/Tv_Medical_insurance"
             android:layout_marginLeft="40dp"
             android:layout_marginRight="150dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="10dp"
             android:gravity="left"
             android:text="@string/Paid"
             android:textColor="#737373"
-            android:textSize="15sp" />
+            android:textSize="22sp" />
 
         <TextView
             android:id="@+id/Tv_Paid_result"
-            android:layout_width="fill_parent"
-            android:layout_height="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@+id/IM_bg_header_top1"
             android:layout_below="@+id/Tv_Medical_insurance"
-            android:layout_marginLeft="150dp"
-            android:layout_marginRight="40dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="10dp"
             android:gravity="right"
             android:text="@string/Paid_result"
             android:textColor="#737373"
-            android:textSize="15sp" />
+            android:textSize="22sp" />
 
         <Button
             android:id="@+id/BT_To_give_up"
-            android:layout_width="100dp"
-            android:layout_height="35dp"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
             android:layout_below="@+id/Tv_Paid_result"
             android:layout_marginLeft="40dp"
             android:layout_marginTop="30dp"
@@ -208,23 +218,22 @@
             android:paddingTop="10dp"
             android:text="@string/To_give_up"
             android:textColor="#FFFFFF"
-            android:textSize="15sp" />
+            android:textSize="18sp" />
 
         <Button
             android:id="@+id/BT_Pay"
-            android:layout_width="100dp"
-            android:layout_height="35dp"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:layout_alignRight="@+id/IM_bg_header_top1"
             android:layout_below="@+id/Tv_Paid_result"
-            android:layout_marginLeft="30dp"
             android:layout_marginRight="40dp"
             android:layout_marginTop="30dp"
-            android:layout_toRightOf="@+id/BT_To_give_up"
             android:background="@drawable/editsharp1"
             android:gravity="center"
             android:paddingTop="10dp"
             android:text="@string/Pay"
             android:textColor="#FFFFFF"
-            android:textSize="15sp" />
+            android:textSize="18sp" />
 
         <ImageView
             android:id="@+id/IM_divider_horizontal_line1"

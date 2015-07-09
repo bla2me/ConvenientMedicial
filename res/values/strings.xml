@@ -15,7 +15,7 @@
     <string name="Serial_number">流水号：00000000</string>
     <string name="Prescription_number">处方号:00000000</string>
     <string name="Patient_name">姓名：戴王炯</string>
-    <string name="sex_age">性别：男&#160;&#160;&#160;年龄：20</string>
+    <string name="sex_age">性别：男</string>
     <string name="Outpatient_category">门诊类别：普通门诊</string>
     <string name="Division">科别：神经科</string>
     <string name="Visiting_time">就诊时间：7月1日&#160;&#160;&#160;9:00</string>

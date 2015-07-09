@@ -1,7 +1,7 @@
 package com.convenientmedical.main;
 
 import com.convenientmedical.frag.Me;
-import com.convenientmedical.frag.News;
+import com.convenientmedical.frag.Diagnoses;
 import com.convenientmedical.frag.Pay;
 import com.convenientmedical.frag.Registration;
 import android.app.Activity;
@@ -24,7 +24,7 @@ public class MainActivity extends Activity implements OnClickListener {
 	// 定义四个fragment
 	private Registration regFrag;
 	private Pay payFrag;
-	private News newsFrag;
+	private Diagnoses newsFrag;
 	private Me meFrag;
 
 	// 四个layout
@@ -67,7 +67,7 @@ public class MainActivity extends Activity implements OnClickListener {
 				transaction.show(regFrag);
 			}
 			break;
-		case 1:
+		case 2:
 			payImage.setImageResource(R.drawable.doctor_logo_hovered);
 			// // 如果为空，则创建
 			if (payFrag == null) {
@@ -77,11 +77,11 @@ public class MainActivity extends Activity implements OnClickListener {
 				transaction.show(payFrag);
 			}
 			break;
-		case 2:
+		case 1:
 			newsImage.setImageResource(R.drawable.news_logo_hovered);
 			//如果为空，则创建
 			if (newsFrag == null) {
-				newsFrag = new News();
+				newsFrag = new Diagnoses();
 				transaction.add(R.id.content, newsFrag);
 			} else {
 				transaction.show(newsFrag);

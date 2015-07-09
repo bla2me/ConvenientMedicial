@@ -16,12 +16,5 @@
         android:textColor="#20AF65"
         android:textSize="15sp" />
 
-    <ImageView
-        android:id="@+id/IV_doc_or_hos__group"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@null"
-        android:paddingLeft="10dp"
-        android:src="@drawable/downarrow_small_green" />
 
 </LinearLayout>

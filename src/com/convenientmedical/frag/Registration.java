@@ -12,6 +12,7 @@ import com.convenientmedical.main.SelectDepartmentActivity;
 import com.convenientmedical.main.SelectDoctorList;
 import com.convenientmedical.main.SelectHosActivity;
 import com.convenientmedical.search.DoctorSearchResult;
+import com.convenitentmedical.savedata.RegInfo;
 
 import android.app.Fragment;
 import android.content.Intent;
@@ -45,6 +46,7 @@ public class Registration extends Fragment {
 	private EditText metSearch;
 	private RelativeLayout mrlChooseArea, mSelectHos, mSelectDept, mSelectDoc;
 	private Button mbtReservation;
+	private TextView mtvSelectHos, mtvSelArea, mtvSelDept, mtvSelDoc;
 	private Spinner mspinner;
 	private List<String> data_list;
 	private ArrayAdapter<String> arr_adapter;
@@ -64,6 +66,7 @@ public class Registration extends Fragment {
 		registrationView = inflater.inflate(R.layout.registration, container,
 				false);
 		initView();
+		setAllText();
 		setSpinnerAdapter();
 
 		// 搜索事件
@@ -76,18 +79,22 @@ public class Registration extends Fragment {
 				if (actionId == EditorInfo.IME_ACTION_SEARCH) {
 					searchContent = metSearch.getText().toString().trim();
 					if (searchContent.equals("")) {
-						Toast.makeText(getActivity(), "请输入内容！", Toast.LENGTH_SHORT).show();
+						Toast.makeText(getActivity(), "请输入内容！",
+								Toast.LENGTH_SHORT).show();
 					} else {
-/*						mHash = new HashMap<String, String>();
-						mHash.put("searchmethod", searchMethod);
-						mHash.put("searchcontent", searchContent);
-						Log.i("hash", mHash.toString());*/
+						/*
+						 * mHash = new HashMap<String, String>();
+						 * mHash.put("searchmethod", searchMethod);
+						 * mHash.put("searchcontent", searchContent);
+						 * Log.i("hash", mHash.toString());
+						 */
 						Intent intent = new Intent(getActivity(),
 								DoctorSearchResult.class);
-						intent.putExtra("search", new String[]{searchMethod,searchContent});
+						intent.putExtra("search", new String[] { searchMethod,
+								searchContent });
 						startActivity(intent);
 					}
-					
+
 				}
 				return false;
 			}
@@ -108,6 +115,10 @@ public class Registration extends Fragment {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
+				if(RegInfo.getInstanse().getArea().equals(""))
+				{
+					Toast.makeText(getActivity(), "请先选择地区！", Toast.LENGTH_SHORT).show();
+				}
 				Intent intent = new Intent(getActivity(),
 						SelectHosActivity.class);
 				startActivity(intent);
@@ -119,6 +130,10 @@ public class Registration extends Fragment {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
+				if(RegInfo.getInstanse().getHospital().equals(""))
+				{
+					Toast.makeText(getActivity(), "请先选择医院！", Toast.LENGTH_SHORT).show();
+				}
 				Intent intent = new Intent(getActivity(),
 						SelectDepartmentActivity.class);
 				startActivity(intent);
@@ -130,6 +145,10 @@ public class Registration extends Fragment {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
+				if(RegInfo.getInstanse().getDepartment().equals(""))
+				{
+					Toast.makeText(getActivity(), "请先选择科室！", Toast.LENGTH_SHORT).show();
+				}
 				Intent intent = new Intent(getActivity(),
 						SelectDoctorList.class);
 				startActivity(intent);
@@ -148,7 +167,40 @@ public class Registration extends Fragment {
 		return registrationView;
 	}
 
+	/**
+	 * 选择之后设文字
+	 */
+	private void setAllText() {
+		String area = RegInfo.getInstanse().getArea();
+		String hos = RegInfo.getInstanse().getHospital();
+		String dept = RegInfo.getInstanse().getDepartment();
+		String doc = RegInfo.getInstanse().getDoctor();
+
+		if (!area.equals("")) {
+			mtvSelArea.setText(area);
+		}
+		if (!hos.equals("")) {
+			mtvSelectHos.setText(hos);
+		}
+		if(!dept.equals(""))
+		{
+			mtvSelDept.setText(dept);
+		}
+		if(!doc.equals(""))
+		{
+			mtvSelDoc.setText(doc);
+		}
+	}
+
 	private void initView() {
+		mtvSelectHos = (TextView) registrationView
+				.findViewById(R.id.Tv_select_hosptical);
+		mtvSelArea = (TextView) registrationView
+				.findViewById(R.id.Tv_select_area);
+		mtvSelDept = (TextView) registrationView
+				.findViewById(R.id.Tv_Select_Department);
+		mtvSelDoc = (TextView) registrationView
+				.findViewById(R.id.Tv_select_doctor);
 		mrlChooseArea = (RelativeLayout) registrationView
 				.findViewById(R.id.rl_1);
 		mSelectHos = (RelativeLayout) registrationView.findViewById(R.id.rl_2);
@@ -203,7 +255,7 @@ public class Registration extends Fragment {
 	 * @param back
 	 */
 	public void getSearchContent(CallBack back) {
-			back.getResult(mHash);
+		back.getResult(mHash);
 	}
 
 	/**

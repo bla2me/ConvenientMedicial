@@ -1,30 +1,96 @@
 package com.convenientmedical.pay;
 
-import com.convenientmedical.main.R;
-
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.Toast;
+
+import com.convenientmedical.main.R;
+import com.convenientmedical.main.RegistratInfo;
 
 public class PayMethod extends Activity {
 private Button mbtPay;
+private RadioGroup mGroup;
+private ImageButton mibBack;
+
+private RadioButton mraButton1,mraButton2,mraButton3,mraButton4;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.payment_method);
-		mbtPay=(Button)findViewById(R.id.BT_sure);
+		initView();
+		mibBack.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				finish();
+			}
+		});
+		getGroupChecked();
+		payClick();
+	}
+	private void payClick() {
 		mbtPay.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				Toast.makeText(getApplicationContext(), "缴费成功", Toast.LENGTH_SHORT).show();
+				Intent intent=new Intent(getApplicationContext(), RegistratInfo.class);
+				intent.putExtra("status", 1);
+				startActivity(intent);
+				finish();
 			}
 		});
+	}
+	/**
+	 * 获取缴费方式
+	 */
+	private void getGroupChecked() {
+		mGroup.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+			
+			@Override
+			public void onCheckedChanged(RadioGroup group, int checkedId) {
+				// TODO Auto-generated method stub
+				if(checkedId==mraButton1.getId())
+				{
+					 Toast.makeText(getApplicationContext(),mraButton1.getText().toString(), Toast.LENGTH_LONG).show();
+				}
+				if(checkedId==mraButton2.getId())
+				{
+					 Toast.makeText(getApplicationContext(),mraButton2.getText().toString(), Toast.LENGTH_LONG).show();
+				}
+				if(checkedId==mraButton3.getId())
+				{
+					 Toast.makeText(getApplicationContext(),mraButton3.getText().toString(), Toast.LENGTH_LONG).show();
+				}
+				if(checkedId==mraButton4.getId())
+				{
+					 Toast.makeText(getApplicationContext(),mraButton4.getText().toString(), Toast.LENGTH_LONG).show();
+				}
+			}
+		});
+	}
+	/**
+	 * 实例化
+	 */
+	private void initView() {
+		mbtPay=(Button)findViewById(R.id.BT_sure);
+		mibBack=(ImageButton)findViewById(R.id.Ib_back);
+		mGroup=(RadioGroup)findViewById(R.id.Rg_car_select);
+		mraButton1=(RadioButton)findViewById(R.id.RB_Alipay);
+		mraButton2=(RadioButton)findViewById(R.id.RB_Social_security_card);
+		mraButton3=(RadioButton)findViewById(R.id.RB_UnionPay_payment);
+		mraButton4=(RadioButton)findViewById(R.id.RB_Quick_payment);
 	}
 
 }
