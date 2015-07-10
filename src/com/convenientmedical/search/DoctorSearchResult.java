@@ -14,8 +14,10 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.convenientmedical.frag.Registration;
 import com.convenientmedical.frag.Registration.CallBack;
 import com.convenientmedical.json.ParseJson;
+import com.convenientmedical.main.MainActivity;
 import com.convenientmedical.main.R;
 import com.convenientmedical.net.AppController;
+import com.convenitentmedical.savedata.RegInfo;
 import com.convenitentmedical.savedata.SharePreferenceUtil;
 
 import android.app.Activity;
@@ -25,6 +27,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
@@ -49,6 +53,7 @@ public class DoctorSearchResult extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.search_result);
 		initView();
+		overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out); 
 		preferences = getSharedPreferences("myshare", MODE_PRIVATE);
 
 		// 返回按钮
@@ -72,6 +77,20 @@ public class DoctorSearchResult extends Activity {
 						"hospital", "doctor" }, new int[] { R.id.tv_area,
 						R.id.tv_hos_name, R.id.tv_doc_name });
 		mResultList.setAdapter(adapter);
+		mResultList.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view,
+					int position, long id) {
+				// TODO Auto-generated method stub
+				HashMap<String, Object> mhash=(HashMap<String, Object>)parent.getItemAtPosition(position);
+				RegInfo.getInstanse().setArea(mhash.get("area").toString());
+				RegInfo.getInstanse().setHospital(mhash.get("hospital").toString());
+				RegInfo.getInstanse().setDoctor(mhash.get("doctor").toString());
+				Intent intent=new Intent(getApplicationContext(), MainActivity.class);
+				startActivity(intent);
+			}
+		});
 	}
 
 	private void packageJson() {
@@ -100,9 +119,9 @@ public class DoctorSearchResult extends Activity {
 				jsonObject, new Response.Listener<JSONObject>() {
 
 					@Override
-					public void onResponse(JSONObject arg0) {
+					public void onResponse(JSONObject jsonObject) {
 						// TODO Auto-generated method stub
-
+						Log.i("search_res", jsonObject.toString());
 					}
 				}, new Response.ErrorListener() {
 

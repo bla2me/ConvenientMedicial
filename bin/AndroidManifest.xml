@@ -38,6 +38,8 @@
         <activity android:name="com.convenientmedical.main.SelectDepartmentActivity"></activity>
         <activity android:name="com.convenientmedical.me.SocialCard"></activity>
         <activity android:name="com.convenientmedical.pay.PayMethod"></activity>
+        <activity android:name="com.convenientmedical.diagnoses.IllDetailsActivity"></activity>
+        <activity android:name="com.convenientmedical.diagnoses.IllDetailsResportActivity"></activity>
     </application>
 
 </manifest>

@@ -5,7 +5,13 @@
     android:background="#F5F5F5"
     android:orientation="vertical" >
 
+    <TextView
+        android:id="@+id/top"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="#20AF65" />
     <RelativeLayout
+        android:layout_below="@+id/top"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#FFFFFF"
@@ -45,12 +51,12 @@
 
         <ImageButton
             android:id="@+id/Ib_left"
-            android:layout_width="20dp"
+            android:layout_width="15dp"
             android:layout_height="20dp"
             android:layout_alignParentLeft="true"
-            android:layout_below="@+id/IM_divider_horizontal_line"
+            android:layout_alignTop="@+id/Tv_test_blood"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="4dp"
             android:background="@null"
             android:scaleType="fitXY"
             android:src="@drawable/leftarrow" />
@@ -58,15 +64,15 @@
         <TextView
             android:id="@+id/Tv_test_blood"
             android:layout_width="fill_parent"
-            android:layout_height="20dp"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/IM_divider_horizontal_line"
             android:layout_marginLeft="45dp"
             android:layout_marginRight="45dp"
             android:layout_marginTop="10dp"
             android:gravity="center"
             android:text="@string/test_blood"
-            android:textColor="#737373"
-            android:textSize="15sp" />
+            android:textColor="#323232"
+            android:textSize="22sp" />
 
         <ImageView
             android:id="@+id/IM_line_x"
@@ -82,147 +88,146 @@
         <TextView
             android:id="@+id/Tv_Check_state"
             android:layout_width="fill_parent"
-            android:layout_height="20dp"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/IM_line_x"
             android:layout_marginLeft="40dp"
             android:layout_marginRight="150dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
             android:gravity="left"
             android:text="@string/Check_state"
-            android:textColor="#737373"
-            android:textSize="15sp" />
+            android:textColor="#4B4B4B"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/Tv_Check_state_result"
             android:layout_width="fill_parent"
-            android:layout_height="20dp"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/IM_line_x"
             android:layout_marginLeft="150dp"
             android:layout_marginRight="40dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
             android:gravity="right"
             android:text="@string/Check_state_result"
-            android:textColor="#737373"
-            android:textSize="15sp" />
+            android:textColor="#4B4B4B"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/Tv_Check_place"
             android:layout_width="fill_parent"
-            android:layout_height="20dp"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/Tv_Check_state"
             android:layout_marginLeft="40dp"
             android:layout_marginRight="150dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="15dp"
             android:gravity="left"
             android:text="@string/Check_place"
-            android:textColor="#737373"
-            android:textSize="15sp" />
+            android:textColor="#4B4B4B"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/Tv_Check_place_result"
             android:layout_width="fill_parent"
-            android:layout_height="20dp"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/Tv_Check_state"
             android:layout_marginLeft="150dp"
             android:layout_marginRight="40dp"
             android:layout_marginTop="10dp"
             android:gravity="right"
             android:text="@string/Check_place_result"
-            android:textColor="#737373"
-            android:textSize="15sp" />
+            android:textColor="#4B4B4B"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/Tv_Cost"
             android:layout_width="fill_parent"
-            android:layout_height="20dp"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/Tv_Check_place"
             android:layout_marginLeft="40dp"
             android:layout_marginRight="150dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="15dp"
             android:gravity="left"
             android:text="@string/Cost"
-            android:textColor="#737373"
-            android:textSize="15sp" />
+            android:textColor="#4B4B4B"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/Tv_Cost_result"
             android:layout_width="fill_parent"
-            android:layout_height="20dp"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/Tv_Check_place"
             android:layout_marginLeft="150dp"
             android:layout_marginRight="40dp"
             android:layout_marginTop="10dp"
             android:gravity="right"
             android:text="@string/Cost_result"
-            android:textColor="#737373"
-            android:textSize="15sp" />
+            android:textColor="#4B4B4B"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/Tv_Payment_status"
             android:layout_width="fill_parent"
-            android:layout_height="20dp"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/Tv_Cost"
             android:layout_marginLeft="40dp"
             android:layout_marginRight="150dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="15dp"
             android:gravity="left"
             android:text="@string/Payment_status"
-            android:textColor="#737373"
-            android:textSize="15sp" />
+            android:textColor="#4B4B4B"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/Tv_Payment_status_result"
             android:layout_width="fill_parent"
-            android:layout_height="20dp"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/Tv_Cost"
             android:layout_marginLeft="150dp"
             android:layout_marginRight="40dp"
             android:layout_marginTop="10dp"
             android:gravity="right"
             android:text="@string/Payment_status_result"
-            android:textColor="#737373"
-            android:textSize="15sp" />
+            android:textColor="#4B4B4B"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/Tv_Sign_in_state"
             android:layout_width="fill_parent"
-            android:layout_height="20dp"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/Tv_Payment_status"
             android:layout_marginLeft="40dp"
             android:layout_marginRight="150dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="15dp"
             android:gravity="left"
             android:text="@string/Sign_in_state"
-            android:textColor="#737373"
-            android:textSize="15sp" />
+            android:textColor="#4B4B4B"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/Tv_Sign_in_state_result"
             android:layout_width="fill_parent"
-            android:layout_height="20dp"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/Tv_Payment_status"
             android:layout_marginLeft="150dp"
             android:layout_marginRight="40dp"
             android:layout_marginTop="10dp"
             android:gravity="right"
             android:text="@string/Sign_in_state_result"
-            android:textColor="#737373"
-            android:textSize="15sp" />
+            android:textColor="#4B4B4B"
+            android:textSize="18sp" />
 
         <Button
             android:id="@+id/BT_Inspection_report"
             android:layout_width="fill_parent"
-            android:layout_height="35dp"
+            android:layout_height="40dp"
             android:layout_below="@+id/Tv_Sign_in_state"
             android:layout_marginLeft="50dp"
             android:layout_marginRight="50dp"
             android:layout_marginTop="30dp"
             android:background="@drawable/editsharp1"
             android:gravity="center"
-            android:paddingTop="10dp"
             android:text="@string/Inspection_report"
             android:textColor="#FFFFFF"
-            android:textSize="15sp" />
+            android:textSize="18sp" />
 
         <ImageView
             android:id="@+id/IM_divider_horizontal_line1"

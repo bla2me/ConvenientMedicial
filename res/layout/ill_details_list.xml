@@ -10,6 +10,7 @@
         android:layout_height="wrap_content"
         android:singleLine="true"
         android:text="病情详情"
+        android:layout_weight="1"
         android:textColor="#323232"
         android:textSize="18sp" />
 
@@ -17,9 +18,9 @@
         android:id="@+id/tv_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
         android:singleLine="true"
         android:text="病情详情"
+        android:layout_weight="1"
         android:textColor="#323232"
         android:textSize="18sp" />
 
@@ -27,7 +28,6 @@
         android:id="@+id/tv_queue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
         android:layout_weight="1"
         android:gravity="center"
         android:singleLine="true"
@@ -36,8 +36,9 @@
         android:textSize="18sp" />
 
     <Button
+        android:id="@+id/bt_details"
         android:layout_width="50dp"
-        android:layout_height="30dp"
+        android:layout_height="35dp"
         android:background="@drawable/editsharp1"
         android:gravity="center"
         android:text="详情"

@@ -1,9 +1,11 @@
 package com.convenientmedical.main;
 
 import com.convenientmedical.pay.PayDetails;
+import com.convenitentmedical.savedata.SharePreferenceUtil;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -14,11 +16,13 @@ public class RegistratInfo extends Activity implements OnClickListener{
 	private Button mbtCancel, mbtPay;
 	private ImageButton mibBack;
 	private  int status;
+	private SharedPreferences preferences;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.registered_information);
+		preferences=getSharedPreferences("myshare", MODE_PRIVATE);
 		initView();
 	}
 	
@@ -69,6 +73,7 @@ public class RegistratInfo extends Activity implements OnClickListener{
 			finish();
 			break;
 		case R.id.BT_To_pay_for:
+			SharePreferenceUtil.getInstanse().putIntData(preferences, "pay_from", 0);
 			Intent intent1=new Intent(getApplicationContext(), PayDetails.class);
 			startActivity(intent1);
 		default:

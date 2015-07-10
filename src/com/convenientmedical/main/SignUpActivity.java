@@ -54,7 +54,7 @@ private static final String URL="https://120.26.83.51/demo/user/register";
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.registered);
 		initView();
-		preferences=getPreferences(MODE_PRIVATE);
+		preferences=getSharedPreferences("myshare", MODE_PRIVATE);
 		requestqueue=Volley.newRequestQueue(getApplicationContext());
 		mbtSignUp.setOnClickListener(new OnClickListener() {
 			

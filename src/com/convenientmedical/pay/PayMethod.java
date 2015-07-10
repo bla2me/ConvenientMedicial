@@ -2,6 +2,7 @@ package com.convenientmedical.pay;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -12,8 +13,10 @@ import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.Toast;
 
+import com.convenientmedical.diagnoses.IllDetailsActivity;
 import com.convenientmedical.main.R;
 import com.convenientmedical.main.RegistratInfo;
+import com.convenitentmedical.savedata.SharePreferenceUtil;
 
 public class PayMethod extends Activity {
 private Button mbtPay;
@@ -21,12 +24,14 @@ private RadioGroup mGroup;
 private ImageButton mibBack;
 
 private RadioButton mraButton1,mraButton2,mraButton3,mraButton4;
+private SharedPreferences preferences;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.payment_method);
 		initView();
+		preferences=getSharedPreferences("myshare", MODE_PRIVATE);
 		mibBack.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -45,10 +50,17 @@ private RadioButton mraButton1,mraButton2,mraButton3,mraButton4;
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				Toast.makeText(getApplicationContext(), "缴费成功", Toast.LENGTH_SHORT).show();
-				Intent intent=new Intent(getApplicationContext(), RegistratInfo.class);
-				intent.putExtra("status", 1);
-				startActivity(intent);
-				finish();
+				if (SharePreferenceUtil.getInstanse().getIntData(preferences, "pay_from")==0) {
+					Intent intent=new Intent(getApplicationContext(), RegistratInfo.class);
+					intent.putExtra("status", 1);
+					startActivity(intent);
+					finish();
+				}
+				else{
+					Intent intent=new Intent(getApplicationContext(), IllDetailsActivity.class);
+					startActivity(intent);
+					finish();
+				}
 			}
 		});
 	}

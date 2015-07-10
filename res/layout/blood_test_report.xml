@@ -5,7 +5,13 @@
     android:background="#F5F5F5"
     android:orientation="vertical" >
 
+    <TextView
+        android:id="@+id/top"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="#20AF65" />
     <RelativeLayout
+        android:layout_below="@+id/top"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#FFFFFF"
@@ -45,12 +51,12 @@
 
         <ImageButton
             android:id="@+id/Ib_left"
-            android:layout_width="20dp"
+            android:layout_width="15dp"
             android:layout_height="20dp"
             android:layout_alignParentLeft="true"
-            android:layout_below="@+id/IM_divider_horizontal_line"
+            android:layout_alignTop="@+id/Tv_Blood_test_report"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="4dp"
             android:background="@null"
             android:scaleType="fitXY"
             android:src="@drawable/leftarrow" />
@@ -58,15 +64,15 @@
         <TextView
             android:id="@+id/Tv_Blood_test_report"
             android:layout_width="fill_parent"
-            android:layout_height="20dp"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/IM_divider_horizontal_line"
             android:layout_marginLeft="45dp"
             android:layout_marginRight="45dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
             android:gravity="center"
             android:text="@string/Blood_test_report"
-            android:textColor="#737373"
-            android:textSize="15sp" />
+            android:textColor="#323232"
+            android:textSize="22sp" />
 
         <ImageView
             android:id="@+id/IM_line_x"
@@ -75,165 +81,165 @@
             android:layout_below="@+id/Tv_Blood_test_report"
             android:layout_marginLeft="12dp"
             android:layout_marginRight="12dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
             android:scaleType="fitXY"
             android:src="@drawable/line_x" />
 
         <TextView
             android:id="@+id/Tv_Check_type"
             android:layout_width="fill_parent"
-            android:layout_height="20dp"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/IM_line_x"
             android:layout_marginLeft="40dp"
             android:layout_marginRight="150dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
             android:gravity="left"
             android:text="@string/Check_type"
-            android:textColor="#737373"
-            android:textSize="15sp" />
+            android:textColor="#4B4B4B"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/Tv_Check_type_result"
             android:layout_width="fill_parent"
-            android:layout_height="20dp"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/IM_line_x"
             android:layout_marginLeft="150dp"
             android:layout_marginRight="40dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
             android:gravity="right"
             android:text="@string/Check_type_result"
-            android:textColor="#737373"
-            android:textSize="15sp" />
+            android:textColor="#4B4B4B"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/Tv_Inspection_site"
             android:layout_width="fill_parent"
-            android:layout_height="20dp"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/Tv_Check_type_result"
             android:layout_marginLeft="40dp"
             android:layout_marginRight="150dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="15dp"
             android:gravity="left"
             android:text="@string/Inspection_site"
-            android:textColor="#737373"
-            android:textSize="15sp" />
+            android:textColor="#4B4B4B"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/Tv_Inspection_site_result"
             android:layout_width="fill_parent"
-            android:layout_height="20dp"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/Tv_Check_type_result"
             android:layout_marginLeft="150dp"
             android:layout_marginRight="40dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="15dp"
             android:gravity="right"
             android:text="@string/Inspection_site_result"
-            android:textColor="#737373"
-            android:textSize="15sp" />
+            android:textColor="#4B4B4B"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/Tv_Check_see"
             android:layout_width="fill_parent"
-            android:layout_height="20dp"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/Tv_Inspection_site_result"
             android:layout_marginLeft="40dp"
             android:layout_marginRight="150dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="15dp"
             android:gravity="left"
             android:text="@string/Check_see"
-            android:textColor="#737373"
-            android:textSize="15sp" />
+            android:textColor="#4B4B4B"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/Tv_Check_see_result"
             android:layout_width="fill_parent"
-            android:layout_height="20dp"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/Tv_Inspection_site_result"
             android:layout_marginLeft="150dp"
             android:layout_marginRight="40dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="15dp"
             android:gravity="right"
             android:text="@string/Check_see_result"
-            android:textColor="#737373"
-            android:textSize="15sp" />
+            android:textColor="#4B4B4B"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/Tv_Other_information1"
             android:layout_width="fill_parent"
-            android:layout_height="20dp"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/Tv_Check_see_result"
             android:layout_marginLeft="40dp"
             android:layout_marginRight="150dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="15dp"
             android:gravity="left"
             android:text="@string/Other_information1"
-            android:textColor="#737373"
-            android:textSize="15sp" />
+            android:textColor="#4B4B4B"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/Tv_Other_information1_result"
             android:layout_width="fill_parent"
-            android:layout_height="20dp"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/Tv_Check_see_result"
             android:layout_marginLeft="150dp"
             android:layout_marginRight="40dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="15dp"
             android:gravity="right"
             android:text="@string/Other_information1_result"
-            android:textColor="#737373"
-            android:textSize="15sp" />
+            android:textColor="#4B4B4B"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/Tv_Other_information2"
             android:layout_width="fill_parent"
-            android:layout_height="20dp"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/Tv_Other_information1_result"
             android:layout_marginLeft="40dp"
             android:layout_marginRight="150dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="15dp"
             android:gravity="left"
             android:text="@string/Other_information2"
-            android:textColor="#737373"
-            android:textSize="15sp" />
+            android:textColor="#4B4B4B"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/Tv_Other_information2_result"
             android:layout_width="fill_parent"
-            android:layout_height="20dp"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/Tv_Other_information1_result"
             android:layout_marginLeft="150dp"
             android:layout_marginRight="40dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="15dp"
             android:gravity="right"
             android:text="@string/Other_information2_result"
-            android:textColor="#737373"
-            android:textSize="15sp" />
+            android:textColor="#4B4B4B"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/Tv_Other_information3"
             android:layout_width="fill_parent"
-            android:layout_height="20dp"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/Tv_Other_information2_result"
             android:layout_marginLeft="40dp"
             android:layout_marginRight="150dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="15dp"
             android:gravity="left"
             android:text="@string/Other_information3"
-            android:textColor="#737373"
-            android:textSize="15sp" />
+            android:textColor="#4B4B4B"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/Tv_Other_information3_result"
             android:layout_width="fill_parent"
-            android:layout_height="20dp"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/Tv_Other_information2_result"
             android:layout_marginLeft="150dp"
             android:layout_marginRight="40dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="15dp"
             android:gravity="right"
             android:text="@string/Other_information3_result"
-            android:textColor="#737373"
-            android:textSize="15sp" />
+            android:textColor="#4B4B4B"
+            android:textSize="18sp" />
 
         <ImageView
             android:id="@+id/IM_divider_horizontal_line1"

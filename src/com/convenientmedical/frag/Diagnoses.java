@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import com.convenientmedical.adapter.IllDetailsListAdapter;
 import com.convenientmedical.main.R;
 
 import android.app.Fragment;
@@ -37,9 +38,7 @@ public class Diagnoses extends Fragment implements OnClickListener {
 		diagView = inflater.inflate(R.layout.diagnoses, container, false);
 		mCheckList=new ArrayList<HashMap<String,Object>>();
 		mMedicalList=new ArrayList<HashMap<String,Object>>();
-		setCheckData();
-		setMedicalData();
-		setCheckListAdapter();
+		
 		return diagView;
 	}
 
@@ -77,6 +76,10 @@ public class Diagnoses extends Fragment implements OnClickListener {
 		// TODO Auto-generated method stub
 		super.onActivityCreated(savedInstanceState);
 		initView();
+		setCheckData();
+		setMedicalData();
+		setCheckListAdapter();
+		setMedicalListAdapter();
 
 	}
 
@@ -128,16 +131,24 @@ public class Diagnoses extends Fragment implements OnClickListener {
 	private void setMedicalData()
 	{
 		mMedicalHash=new HashMap<String, Object>();
-		mMedicalHash.put("project", "CT");
-		mMedicalHash.put("time", "7/2 14:00");
-		mMedicalHash.put("queue", "8");
-		mMedicalList.add(mCheckHash);
+		mMedicalHash.put("name", "CT");
+		mMedicalHash.put("quantity", "7/2 14:00");
+		mMedicalHash.put("price", "8");
+		mMedicalList.add(mMedicalHash);
 	}
 	private void setCheckListAdapter()
 	{
-		SimpleAdapter adapter= new SimpleAdapter(getActivity(), mCheckList, R.layout.ill_details_list, 
-				new String[]{"project","time","queue"}, new int[]{R.id.tv_project,R.id.tv_time,R.id.tv_queue});
+		IllDetailsListAdapter adapter=new IllDetailsListAdapter(getActivity(), mCheckList);
 		mCheckListView.setAdapter(adapter);
+		/*SimpleAdapter adapter= new SimpleAdapter(getActivity(), mCheckList, R.layout.ill_details_list, 
+				new String[]{"project","time","queue"}, new int[]{R.id.tv_project,R.id.tv_time,R.id.tv_queue});
+		mCheckListView.setAdapter(adapter);*/
+	}
+	private void setMedicalListAdapter()
+	{
+		SimpleAdapter adapter=new SimpleAdapter(getActivity(), mMedicalList, R.layout.medical_details_list, 
+				new String[]{"name","quantity","price"}, new int[]{R.id.tv_name,R.id.tv_quantity,R.id.tv_price});
+		mMedicalListView.setAdapter(adapter);
 	}
 
 }

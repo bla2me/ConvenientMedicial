@@ -35,6 +35,7 @@ public class SelectAreaList extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.select_area);
+		overridePendingTransition(R.anim.zoom_in,  R.anim.zoom_out);
 		listView = (ListView) this.findViewById(R.id.LV_select_area);
 		mibBack=(ImageButton)findViewById(R.id.Ib_left);
 		mibBack.setOnClickListener(new OnClickListener() {
