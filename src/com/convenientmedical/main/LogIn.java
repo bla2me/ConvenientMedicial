@@ -48,20 +48,20 @@ public class LogIn extends Activity implements OnClickListener {
 	private SharedPreferences preferences;// 保存登录状态和cookies
 	private Button mbtLogIn, mbtSignup, mbtNoLogIn;
 	private EditText mUserName, mPwd;
-	private String UserName,Pwd;
+	private String UserName, Pwd;
 	private HashMap<String, String> mHashmap;
-	private static final String Url="https://120.26.83.51/demo/user/login";
+	private static final String Url = "https://120.26.83.51/demo/user/login";
 	private RequestQueue requestqueue;
 	public String cookieFromResponse;
-    private String mHeader;
+	private String mHeader;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.log_in);
-		preferences=getSharedPreferences("myshare", MODE_PRIVATE);
-		requestqueue=Volley.newRequestQueue(getApplicationContext());
+		preferences = getSharedPreferences("myshare", MODE_PRIVATE);
+		requestqueue = Volley.newRequestQueue(getApplicationContext());
 		initView();
 	}
 
@@ -97,44 +97,57 @@ public class LogIn extends Activity implements OnClickListener {
 			break;
 		case R.id.BT_landing:
 		default:
-			UserName=mUserName.getText().toString().trim();
-			Pwd=mPwd.getText().toString().trim();
-			if(UserName.equals("")||Pwd.equals(""))
-			{
-				Toast.makeText(getApplicationContext(), "用户名密码不能为空!", Toast.LENGTH_SHORT).show();
+			UserName = mUserName.getText().toString().trim();
+			Pwd = mPwd.getText().toString().trim();
+			if (UserName.equals("") || Pwd.equals("")) {
+				Toast.makeText(getApplicationContext(), "用户名密码不能为空!",
+						Toast.LENGTH_SHORT).show();
 				break;
 			}
-			mHashmap=new HashMap<String, String>();
+			mHashmap = new HashMap<String, String>();
 			mHashmap.put("username", UserName);
-			mHashmap.put("password",Pwd);
+			mHashmap.put("password", Pwd);
 			Log.i("login", mHashmap.toString());
-			StringRequest stringRequest=new StringRequest(Method.POST, Url,new Listener<String>() {
+			StringRequest stringRequest = new StringRequest(Method.POST, Url,
+					new Listener<String>() {
 
-				@Override
-				public void onResponse(String response) {
-					// TODO Auto-generated method stub
-					Log.i("res", response.toString());
-					ParseLogAndSign login=new ParseLogAndSign();
-					if(login.getContent(response).equals("1"))
-					{
-						Toast.makeText(getApplicationContext(), "登录成功", Toast.LENGTH_SHORT).show();
-						Intent intent = new Intent();
-						intent.setClass(getApplicationContext(), MainActivity.class);
-						startActivity(intent);
-						finish();
-						SharePreferenceUtil.getInstanse().putIntData(preferences, "LOG_IN_STATUS", LOG_IN_STATUS);
-						Log.e("logstatus",SharePreferenceUtil.getInstanse().getIntData(preferences,
-								"LOG_IN_STATUS")+"");
-					}
-				}
-			}, new ErrorListener() {
+						@Override
+						public void onResponse(String response) {
+							// TODO Auto-generated method stub
+							Log.i("res", response.toString());
+							ParseLogAndSign login = new ParseLogAndSign();
+							if (login.getContent(response).equals("1")) {
+								Toast.makeText(getApplicationContext(), "登录成功",
+										Toast.LENGTH_SHORT).show();
+								Intent intent = new Intent();
+								intent.setClass(getApplicationContext(),
+										MainActivity.class);
+								startActivity(intent);
+								finish();
+								SharePreferenceUtil.getInstanse().putIntData(
+										preferences, "LOG_IN_STATUS",
+										LOG_IN_STATUS);
+								Log.e("logstatus",
+										SharePreferenceUtil.getInstanse()
+												.getIntData(preferences,
+														"LOG_IN_STATUS")
+												+ "");
+							}
+						}
+					}, new ErrorListener() {
 
-				@Override
-				public void onErrorResponse(VolleyError error) {
-					// TODO Auto-generated method stub
-//					Log.i("res", error.getMessage());
-				}
-			}){
+						@Override
+						public void onErrorResponse(VolleyError error) {
+							// TODO Auto-generated method stub
+							if (error.getMessage() != null) {
+								Log.i("res", error.getMessage());
+							}
+							else
+							{
+								Log.i("res", "no response");
+							}
+						}
+					}) {
 
 				@Override
 				protected Map<String, String> getParams()
@@ -148,37 +161,41 @@ public class LogIn extends Activity implements OnClickListener {
 						NetworkResponse response) {
 					// TODO Auto-generated method stub
 					try {
-						String jsonString =
-						        new String(response.data, HttpHeaderParser.parseCharset(response.headers));
+						String jsonString = new String(response.data,
+								HttpHeaderParser.parseCharset(response.headers));
 					} catch (UnsupportedEncodingException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-		            mHeader = response.headers.toString();
-		            Log.w("LOG","get headers in parseNetworkResponse "+response.headers.toString());
-		            //使用正则表达式从reponse的头中提取cookie内容的子串
-		            Pattern pattern=Pattern.compile("Set-Cookie.*?;");
-		            Matcher m=pattern.matcher(mHeader);
-		            if(m.find()){
-		                cookieFromResponse =m.group();
-		                Log.w("LOG","cookie from server "+ cookieFromResponse);
-		            }
-		            //去掉cookie末尾的分号
-		            cookieFromResponse = cookieFromResponse.substring(11,cookieFromResponse.length()-1);
-//		            Log.w("LOG","cookie substring "+ cookieFromResponse);
-		            //加入sharedpreference
-		            SharePreferenceUtil.getInstanse().putStringData(preferences, "Cookie", cookieFromResponse);
-		            Log.w("cookie", SharePreferenceUtil.getInstanse().getshareString(preferences, "Cookie"));
-		            String dataString = null;
+					mHeader = response.headers.toString();
+					Log.w("LOG", "get headers in parseNetworkResponse "
+							+ response.headers.toString());
+					// 使用正则表达式从reponse的头中提取cookie内容的子串
+					Pattern pattern = Pattern.compile("Set-Cookie.*?;");
+					Matcher m = pattern.matcher(mHeader);
+					if (m.find()) {
+						cookieFromResponse = m.group();
+						Log.w("LOG", "cookie from server " + cookieFromResponse);
+					}
+					// 去掉cookie末尾的分号
+					cookieFromResponse = cookieFromResponse.substring(11,
+							cookieFromResponse.length() - 1);
+					// Log.w("LOG","cookie substring "+ cookieFromResponse);
+					// 加入sharedpreference
+					SharePreferenceUtil.getInstanse().putStringData(
+							preferences, "Cookie", cookieFromResponse);
+					Log.w("cookie", SharePreferenceUtil.getInstanse()
+							.getshareString(preferences, "Cookie"));
+					String dataString = null;
 					try {
-						dataString = new String(response.data,"UTF-8");
+						dataString = new String(response.data, "UTF-8");
 					} catch (UnsupportedEncodingException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
-					}//返回值
-		            
+					}// 返回值
+
 					return Response.success(dataString,
-		                    HttpHeaderParser.parseCacheHeaders(response));
+							HttpHeaderParser.parseCacheHeaders(response));
 				}
 			};
 			requestqueue.add(stringRequest);

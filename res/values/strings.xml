@@ -101,5 +101,7 @@
     <string name="female">女</string>
     <string name="phonenumber">电话号码</string>
     <string name="othersinfor">其他信息</string>
+    <drawable name="clr_pressed">#B7E6CE</drawable>
+    <drawable name="clr_normal">#20AF65</drawable>
 
 </resources>
