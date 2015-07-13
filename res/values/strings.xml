@@ -103,5 +103,28 @@
     <string name="othersinfor">其他信息</string>
     <drawable name="clr_pressed">#B7E6CE</drawable>
     <drawable name="clr_normal">#20AF65</drawable>
+        <string name="age">年龄</string>
+    <string name="age_result">21</string>
+    <string name="Personal_basic_information">个人基本信息</string>
+    <string name="Edit">编辑</string>
+    <string name="Testing_CT">CT</string>
+    <string name="Testing_CT_Paid_result">200￥</string>
+    <string name="Testing_CT_Blood">血液检测</string>
+    <string name="Testing_CT_Blood_result">40￥</string>
+    <string name="Add_bank_card">添加银行卡</string>
+    <string name="Cardholder">持卡人</string>
+    <string name="Cardholder_result">王某某</string>
+    <string name="Card_number">卡号</string>
+    <string name="Card_number_result">1234567890</string>
+    <string name="Cell_phone_number">手机号</string>
+    <string name="Cell_phone_number_result">0987654321</string>
+    <string name="Verification_code">验证码</string>
+    <string name="Verification_code_result">A2BC</string>
+    <string name="Obtain">获取</string>
+    <string name="Submit">提交</string>
+    <string name="History_treatment_list">历史诊疗列表</string>
+    <string name="History_treatment_list_Date">2015/6/1</string>
+    <string name="Bank_of_Communications">交通银行</string>
+    <string name="Bank_of_Communications_Tail_number">尾号123银行卡</string>
 
 </resources>

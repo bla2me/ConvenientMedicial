@@ -5,11 +5,18 @@
     android:background="#F5F5F5"
     android:orientation="vertical" >
 
-    <ExpandableListView
-        android:id="@+id/myExpandableListView"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_weight="1"
-        android:background="@drawable/editsharp" />
+    <TextView
+        android:id="@+id/top"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="#20AF65" />
+    <ListView 
+        android:id="@+id/pay_list"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:background="#ffffff"
+        ></ListView>
 
 </LinearLayout>
