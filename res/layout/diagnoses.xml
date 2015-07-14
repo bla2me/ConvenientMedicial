@@ -46,8 +46,8 @@
 
                     <ImageView
                         android:id="@+id/arrow"
-                        android:layout_width="15dp"
-                        android:layout_height="20dp"
+                        android:layout_width="10dp"
+                        android:layout_height="18dp"
                         android:layout_alignParentRight="true"
                         android:layout_alignTop="@+id/ill_state"
                         android:layout_marginRight="10dp"
@@ -113,8 +113,8 @@
 
                     <ImageView
                         android:id="@+id/arrow_2"
-                        android:layout_width="15dp"
-                        android:layout_height="20dp"
+                        android:layout_width="10dp"
+                        android:layout_height="18dp"
                         android:layout_alignParentRight="true"
                         android:layout_alignTop="@+id/ill_check"
                         android:layout_marginRight="10dp"
@@ -198,8 +198,8 @@
 
                     <ImageView
                         android:id="@+id/arrow_3"
-                        android:layout_width="15dp"
-                        android:layout_height="20dp"
+                        android:layout_width="10dp"
+                        android:layout_height="18dp"
                         android:layout_alignParentRight="true"
                         android:layout_alignTop="@+id/ill_medical"
                         android:layout_marginRight="10dp"

@@ -65,8 +65,8 @@
 
         <ImageView
             android:id="@+id/IV_place"
-            android:layout_width="20dp"
-            android:layout_height="30dp"
+            android:layout_width="18dp"
+            android:layout_height="27dp"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="25dp"
             android:background="@null"
@@ -89,8 +89,8 @@
 
         <ImageButton
             android:id="@+id/Ib_rightarrow_black"
-            android:layout_width="15dp"
-            android:layout_height="20dp"
+            android:layout_width="10dp"
+            android:layout_height="18dp"
             android:layout_alignParentRight="true"
             android:layout_marginRight="20dp"
             android:layout_marginTop="30dp"
@@ -117,9 +117,9 @@
 
         <ImageView
             android:id="@+id/IV_hospital_icon"
-            android:layout_width="30dp"
-            android:layout_height="25dp"
-            android:layout_marginLeft="30dp"
+            android:layout_width="28dp"
+            android:layout_height="22dp"
+            android:layout_marginLeft="25dp"
             android:layout_marginTop="25dp"
             android:background="@null"
             android:scaleType="fitXY"
@@ -141,8 +141,8 @@
 
         <ImageButton
             android:id="@+id/Ib_rightarrow_black1"
-            android:layout_width="15dp"
-            android:layout_height="20dp"
+            android:layout_width="10dp"
+            android:layout_height="18dp"
             android:layout_alignParentRight="true"
             android:layout_marginRight="20dp"
             android:layout_marginTop="30dp"
@@ -176,10 +176,10 @@
 
         <ImageView
             android:id="@+id/IV_keshi_icon"
-            android:layout_width="30dp"
-            android:layout_height="25dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="20dp"
+            android:layout_width="27dp"
+            android:layout_height="27dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="25dp"
             android:background="@null"
             android:scaleType="fitXY"
             android:src="@drawable/keshi_icon" />
@@ -200,8 +200,8 @@
 
         <ImageButton
             android:id="@+id/Ib_rightarrow_black2"
-            android:layout_width="15dp"
-            android:layout_height="20dp"
+            android:layout_width="10dp"
+            android:layout_height="18dp"
             android:layout_alignParentRight="true"
             android:layout_marginRight="20dp"
             android:layout_marginTop="30dp"
@@ -228,9 +228,9 @@
 
         <ImageView
             android:id="@+id/IV_doc_icon"
-            android:layout_width="30dp"
-            android:layout_height="35dp"
-            android:layout_marginLeft="30dp"
+            android:layout_width="20dp"
+            android:layout_height="28dp"
+            android:layout_marginLeft="28dp"
             android:layout_marginTop="20dp"
             android:background="@null"
             android:scaleType="fitXY"
@@ -252,8 +252,8 @@
 
         <ImageButton
             android:id="@+id/Ib_rightarrow_black3"
-            android:layout_width="15dp"
-            android:layout_height="20dp"
+            android:layout_width="10dp"
+            android:layout_height="18dp"
             android:layout_alignParentRight="true"
             android:layout_marginRight="20dp"
             android:layout_marginTop="30dp"

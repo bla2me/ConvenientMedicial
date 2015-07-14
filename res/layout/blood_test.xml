@@ -51,8 +51,8 @@
 
         <ImageButton
             android:id="@+id/Ib_left"
-            android:layout_width="15dp"
-            android:layout_height="20dp"
+            android:layout_width="10dp"
+            android:layout_height="18dp"
             android:layout_alignParentLeft="true"
             android:layout_alignTop="@+id/Tv_test_blood"
             android:layout_marginLeft="30dp"

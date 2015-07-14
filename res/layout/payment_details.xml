@@ -214,7 +214,6 @@
             android:layout_marginTop="30dp"
             android:background="@drawable/editsharp"
             android:gravity="center"
-            android:paddingTop="10dp"
             android:text="@string/To_give_up"
             android:textColor="#FFFFFF"
             android:textSize="18sp" />
@@ -229,7 +228,6 @@
             android:layout_marginTop="30dp"
             android:background="@drawable/editsharp1"
             android:gravity="center"
-            android:paddingTop="10dp"
             android:text="@string/Pay"
             android:textColor="#FFFFFF"
             android:textSize="18sp" />
