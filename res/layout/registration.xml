@@ -19,7 +19,7 @@
             android:layout_height="60dp"
             android:layout_alignParentTop="true"
             android:background="@null"
-            android:src="@drawable/logo" />
+            android:src="@drawable/icon_main" />
 
         <EditText
             android:id="@+id/Et_Search_doc_Tips"
