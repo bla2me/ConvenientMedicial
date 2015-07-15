@@ -1,8 +1,10 @@
 package com.convenientmedical.frag;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import com.convenientmedical.adapter.PayListAdapter;
 import com.convenientmedical.main.R;
 
 import android.app.Fragment;
@@ -28,8 +30,22 @@ private List<HashMap<String, Object>> mList;
 		// TODO Auto-generated method stub
 		payView=inflater.inflate(R.layout.pay, container,false);
 		mListView=(ListView)payView.findViewById(R.id.pay_list);
+		mList=new ArrayList<HashMap<String,Object>>();
+		addData();
+		setAdapter();
 		return payView;
 	}
-
+	private void addData()
+	{
+		mHash=new HashMap<String, Object>();
+		mHash.put("project", "血液检测");
+		mHash.put("money", "30元");
+	}
+	private void setAdapter()
+	{
+		PayListAdapter adapter=new PayListAdapter(getActivity(), mList);
+		mListView.setAdapter(adapter);
+	}
+	
 }
  
