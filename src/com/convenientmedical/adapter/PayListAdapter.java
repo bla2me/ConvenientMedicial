@@ -66,13 +66,13 @@ public class PayListAdapter extends BaseAdapter {
 					.findViewById(R.id.pay_project);
 			holder.mtvMoney = (TextView) convertView.findViewById(R.id.pay_money);
 			holder.mbtPay = (Button) convertView
-					.findViewById(R.id.bt_details);
+					.findViewById(R.id.bt_pay);
 			convertView.setTag(holder);
 		} else {
 			holder = (ViewHolder) convertView.getTag();
 		}
 		holder.mtvProject.setText(mList.get(position).get("project").toString());
-		holder.mtvMoney.setText(mList.get(position).get("time").toString());
+		holder.mtvMoney.setText(mList.get(position).get("money").toString());
 		holder.mbtPay.setOnClickListener(new OnClickListener() {
 
 			@Override

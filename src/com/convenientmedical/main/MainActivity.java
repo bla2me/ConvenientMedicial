@@ -67,18 +67,8 @@ public class MainActivity extends Activity implements OnClickListener {
 				transaction.show(regFrag);
 			}
 			break;
-		case 2:
-			payImage.setImageResource(R.drawable.doctor_logo_hovered);
-			// // 如果为空，则创建
-			if (payFrag == null) {
-				payFrag = new Pay();
-				transaction.add(R.id.content, payFrag);
-			} else {
-				transaction.show(payFrag);
-			}
-			break;
 		case 1:
-			newsImage.setImageResource(R.drawable.news_logo_hovered);
+			payImage.setImageResource(R.drawable.doctor_logo_hovered);
 			//如果为空，则创建
 			if (newsFrag == null) {
 				newsFrag = new Diagnoses();
@@ -87,6 +77,17 @@ public class MainActivity extends Activity implements OnClickListener {
 				transaction.show(newsFrag);
 			}
 			break;
+		case 2:
+			newsImage.setImageResource(R.drawable.news_logo_hovered);
+			// // 如果为空，则创建
+			if (payFrag == null) {
+				payFrag = new Pay();
+				transaction.add(R.id.content, payFrag);
+			} else {
+				transaction.show(payFrag);
+			}
+			break;
+		
 		case 3:
 		default:
 			meImage.setImageResource(R.drawable.me_logo_hovered);

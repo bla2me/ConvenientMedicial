@@ -40,6 +40,10 @@
         <activity android:name="com.convenientmedical.pay.PayMethod"></activity>
         <activity android:name="com.convenientmedical.diagnoses.IllDetailsActivity"></activity>
         <activity android:name="com.convenientmedical.diagnoses.IllDetailsResportActivity"></activity>
+        <activity android:name="com.convenientmedical.me.MyInfo"></activity>
+        <activity android:name="com.convenientmedical.me.MyHistory"></activity>
+        <activity android:name="com.convenientmedical.me.MyBankCard"></activity>
+        <activity android:name="com.convenientmedical.me.AddBankCard"></activity>
     </application>
 
 </manifest>

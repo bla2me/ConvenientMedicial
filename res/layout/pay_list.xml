@@ -11,14 +11,14 @@
         android:layout_weight="1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="23sp"
+        android:textSize="20sp"
         android:textColor="#4b4b4b"
         android:text="TextView" />
 
     <TextView
         android:id="@+id/pay_money"
         android:layout_weight="1"
-        android:textSize="23sp"
+        android:textSize="20sp"
         android:textColor="#4b4b4b"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -31,7 +31,7 @@
         android:textSize="20sp"
         android:background="@drawable/editsharp1"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:text="缴费" />
 
 </LinearLayout>

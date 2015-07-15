@@ -5,20 +5,19 @@
     android:background="#F5F5F5"
     android:orientation="vertical" >
 
-    <ImageView
-        android:id="@+id/IM_divider_horizontal_line"
+    <TextView
+        android:id="@+id/top"
         android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:layout_marginTop="10dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/divider_horizontal_line" />
+        android:layout_height="70dp"
+        android:background="#20AF65" />
+
 
     <ImageView
         android:id="@+id/IM_bg_header_top"
         android:layout_width="2dp"
         android:layout_height="40dp"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/IM_divider_horizontal_line"
+        android:layout_below="@+id/top"
         android:scaleType="fitXY"
         android:src="@drawable/bg_header_top" />
 
@@ -27,7 +26,7 @@
         android:layout_width="2dp"
         android:layout_height="40dp"
         android:layout_alignParentRight="true"
-        android:layout_below="@+id/IM_divider_horizontal_line"
+        android:layout_below="@+id/top"
         android:scaleType="fitXY"
         android:src="@drawable/bg_header_top" />
 
@@ -35,7 +34,7 @@
         android:id="@+id/Tv_My_social_security_card"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:layout_below="@+id/IM_divider_horizontal_line"
+        android:layout_below="@+id/top"
         android:layout_marginLeft="2dp"
         android:layout_marginRight="2dp"
         android:layout_marginTop="0dp"
@@ -48,12 +47,12 @@
 
     <ImageButton
         android:id="@+id/Ib_left"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
+        android:layout_width="10dp"
+        android:layout_height="18dp"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/IM_divider_horizontal_line"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
+        android:layout_below="@+id/top"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="12dp"
         android:background="@null"
         android:scaleType="fitXY"
         android:src="@drawable/leftarrow" />
@@ -241,26 +240,18 @@
         android:scaleType="fitXY"
         android:src="@drawable/divider_horizontal_line" />
      
-     
      <Button
-        android:id="@+id/BT_Add_modify_social_security_card"
-        android:layout_width="fill_parent"
-        android:layout_height="40dp"
-        android:layout_below="@+id/IM_divider_horizontal_line4"
-        android:layout_marginLeft="60dp"
-        android:layout_marginRight="60dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/editsharp1"
-        android:gravity="center"
-        android:paddingTop="10dp"
-        android:text="@string/Add_modify_social_security_card"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp" />
-     
-     
-     
-     
-     
-     
+         android:id="@+id/BT_Add_modify_social_security_card"
+         android:layout_width="fill_parent"
+         android:layout_height="40dp"
+         android:layout_below="@+id/IM_divider_horizontal_line4"
+         android:layout_marginLeft="60dp"
+         android:layout_marginRight="60dp"
+         android:layout_marginTop="20dp"
+         android:background="@drawable/editsharp1"
+         android:gravity="center"
+         android:text="@string/Add_modify_social_security_card"
+         android:textColor="#FFFFFF"
+         android:textSize="20sp" />
 
 </RelativeLayout>

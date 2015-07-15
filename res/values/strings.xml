@@ -10,7 +10,7 @@
     <string name="select_doctor">选择医生</string>
     <string name="search_result">搜索结果</string>
     <string name="Registered_information">挂号信息</string>
-    <string name="Hospital_name">杭州东方医院</string>
+    <string name="Hospital_name">东方医院</string>
     <string name="Registered_information_document">挂号预约凭证</string>
     <string name="Serial_number">流水号：00000000</string>
     <string name="Prescription_number">处方号:00000000</string>

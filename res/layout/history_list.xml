@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/History_treatment_list"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff" >
+
+    <TextView
+        android:id="@+id/Tv_History_treatment_list_Date"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="0dp"
+        android:background="#FFFFFF"
+        android:gravity="center"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
+        android:text="@string/History_treatment_list_Date"
+        android:textColor="#4B4B4B"
+        android:textSize="20sp" />
+
+    <ImageButton
+        android:id="@+id/Ib_Right"
+        android:layout_width="10dp"
+        android:layout_height="18dp"
+        android:layout_alignTop="@+id/Tv_Hospital_name"
+        android:layout_marginRight="15dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="15dp"
+        android:background="@null"
+        android:scaleType="fitXY"
+        android:src="@drawable/rightarrow_black" />
+
+    <TextView
+        android:id="@+id/Tv_Hospital_name"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="40dp"
+        android:layout_toRightOf="@+id/Tv_History_treatment_list_Date"
+        android:background="#FFFFFF"
+        android:gravity="center"
+        android:paddingTop="5dp"
+        android:text="@string/Hospital_name"
+        android:textColor="#4B4B4B"
+        android:textSize="20sp" />
+ 
+</RelativeLayout>

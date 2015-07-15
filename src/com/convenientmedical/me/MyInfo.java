@@ -8,13 +8,13 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageButton;
 
-public class SocialCard extends Activity {
-	private ImageButton mibBack;
+public class MyInfo extends Activity {
+private ImageButton mibBack;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.my_social_security_card);
+		setContentView(R.layout.personal_basic_information);
 		mibBack=(ImageButton)findViewById(R.id.Ib_left);
 		mibBack.setOnClickListener(new OnClickListener() {
 			

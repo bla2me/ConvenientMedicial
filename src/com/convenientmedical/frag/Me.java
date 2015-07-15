@@ -2,6 +2,9 @@ package com.convenientmedical.frag;
 
 import com.convenientmedical.main.LogIn;
 import com.convenientmedical.main.R;
+import com.convenientmedical.me.MyBankCard;
+import com.convenientmedical.me.MyHistory;
+import com.convenientmedical.me.MyInfo;
 import com.convenientmedical.me.SocialCard;
 import com.convenitentmedical.savedata.SharePreferenceUtil;
 
@@ -21,9 +24,9 @@ import android.widget.TextView;
 /**
  * @author Mr.Codey 个人信息fragment
  */
-public class Me extends Fragment {
+public class Me extends Fragment implements OnClickListener {
 	private View meView;
-	private TextView mSocialCard;
+	private TextView myInfo, mHistory, mSocialCard, mBankCard;
 	private ImageButton mSocialImg;
 	private Button mbtLogOut;
 	private static final int LOG_IN_STATUS = 0;// 登出状态值
@@ -36,55 +39,62 @@ public class Me extends Fragment {
 		// TODO Auto-generated method stub
 		meView = inflater.inflate(R.layout.personal_information, container,
 				false);
-		preferences=getActivity().getSharedPreferences("myshare",MODE_PRIVATE);
-		initView();
-		mSocialCard.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				Intent intent=new Intent(getActivity(),SocialCard.class);
-				startActivity(intent);
-			}
-		});
-		mbtLogOut.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				SharePreferenceUtil.getInstanse().putIntData(preferences,"LOG_IN_STATUS", LOG_IN_STATUS);
-				Intent intent=new Intent(getActivity(),LogIn.class);
-				startActivity(intent);
-				getActivity().finish();
-			}
-		});
 		return meView;
 	}
 
-	private void initView() {
-		mSocialCard=(TextView)meView.findViewById(R.id.Tv_My_social_security_card);
-		mSocialImg=(ImageButton)meView.findViewById(R.id.Ib_Right2);
-		mbtLogOut=(Button)meView.findViewById(R.id.BT_Cancellation);
+	@Override
+	public void onActivityCreated(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onActivityCreated(savedInstanceState);
+		preferences = getActivity().getSharedPreferences("myshare",
+				MODE_PRIVATE);
+		initView();
 	}
 
-/*	@Override
+	private void initView() {
+		myInfo = (TextView) meView.findViewById(R.id.Tv_Basic_informationl);
+		mHistory = (TextView) meView
+				.findViewById(R.id.Tv_History_of_diagnosis_and_treatment);
+		mSocialCard = (TextView) meView
+				.findViewById(R.id.Tv_My_social_security_card);
+		mBankCard = (TextView) meView.findViewById(R.id.Tv_My_bank_card);
+		mSocialImg = (ImageButton) meView.findViewById(R.id.Ib_Right2);
+		mbtLogOut = (Button) meView.findViewById(R.id.BT_Cancellation);
+		myInfo.setOnClickListener(this);
+		mHistory.setOnClickListener(this);
+		mSocialCard.setOnClickListener(this);
+		mBankCard.setOnClickListener(this);
+		mbtLogOut.setOnClickListener(this);
+	}
+
+	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
 		Intent intent;
 		switch (v.getId()) {
+		case R.id.Tv_Basic_informationl:
+			intent=new Intent(getActivity(), MyInfo.class);
+			startActivity(intent);
+			break;
+		case R.id.Tv_History_of_diagnosis_and_treatment:
+			intent=new Intent(getActivity(), MyHistory.class);
+			startActivity(intent);
+			break;
 		case R.id.Tv_My_social_security_card:
-			intent=new Intent(getActivity(),SocialCard.class);
+			intent = new Intent(getActivity(), SocialCard.class);
 			startActivity(intent);
 			break;
-		case R.id.Ib_Right2:
-			intent=new Intent(getActivity(),SocialCard.class);
+		case R.id.Tv_My_bank_card:
+			intent=new Intent(getActivity(), MyBankCard.class);
 			startActivity(intent);
 			break;
-
+		case R.id.BT_Cancellation:
 		default:
-			intent=new Intent(getActivity(),SocialCard.class);
+			SharePreferenceUtil.getInstanse().putIntData(preferences,
+					"LOG_IN_STATUS", LOG_IN_STATUS);
+			intent = new Intent(getActivity(), LogIn.class);
 			startActivity(intent);
-			break;
+			getActivity().finish();
 		}
-	}*/
+	}
 }

@@ -35,17 +35,17 @@ private List<HashMap<String, Object>> mList;
 		setAdapter();
 		return payView;
 	}
-	private void addData()
+	private  void addData()
 	{
-		mHash=new HashMap<String, Object>();
-		mHash.put("project", "血液检测");
-		mHash.put("money", "30元");
+	mHash=new HashMap<String, Object>();
+	mHash.put("project", "血液检测");
+	mHash.put("money", "30元");
+	mList.add(mHash);
 	}
 	private void setAdapter()
 	{
 		PayListAdapter adapter=new PayListAdapter(getActivity(), mList);
 		mListView.setAdapter(adapter);
 	}
-	
 }
  
