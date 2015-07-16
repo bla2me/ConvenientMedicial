@@ -34,7 +34,6 @@
             android:layout_width="2dip"
             android:layout_height="fill_parent"
             android:layout_alignBottom="@+id/IM_divider_horizontal_line1"
-            android:layout_below="@+id/Tv_Registered_information"
             android:layout_marginLeft="10dp"
             android:scaleType="fitXY"
             android:src="@drawable/bg_header_top" />
@@ -45,7 +44,6 @@
             android:layout_height="fill_parent"
             android:layout_alignBottom="@+id/IM_divider_horizontal_line1"
             android:layout_alignParentRight="true"
-            android:layout_below="@+id/Tv_Registered_information"
             android:layout_marginRight="10dp"
             android:scaleType="fitXY"
             android:src="@drawable/bg_header_top" />
