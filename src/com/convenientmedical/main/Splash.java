@@ -29,7 +29,7 @@ public class Splash extends Activity {
 		preferences = getSharedPreferences("myshare", MODE_PRIVATE);
 		ll_splash_main = (LinearLayout) findViewById(R.id.ll_splash_main);
 		AlphaAnimation aa = new AlphaAnimation(0.1f, 1.0f);
-		aa.setDuration(1000);
+		aa.setDuration(3000);
 		ll_splash_main.startAnimation(aa);
 		new Handler().postDelayed(new Runnable() {
 
@@ -37,7 +37,7 @@ public class Splash extends Activity {
 			public void run() {
 				setMainActivity();
 			}
-		}, 1000);
+		}, 3000);
 
 	}
 

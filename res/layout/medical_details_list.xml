@@ -2,11 +2,13 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingBottom="2dp"
+    android:paddingTop="2dp"
     android:orientation="horizontal" >
 
     <TextView
         android:id="@+id/tv_name"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:singleLine="true"
         android:text="病情详情"
@@ -16,7 +18,7 @@
 
     <TextView
         android:id="@+id/tv_quantity"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:singleLine="true"
         android:text="病情详情"
@@ -27,7 +29,7 @@
 
     <TextView
         android:id="@+id/tv_price"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_weight="1"

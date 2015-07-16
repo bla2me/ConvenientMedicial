@@ -37,15 +37,15 @@ import android.widget.Toast;
  */
 public class SignUpActivity extends Activity {
 private Button mbtSignUp;
-private EditText metUserName,metPwd,metRePwd;
-private String mUserName,mPwd;
+private EditText metPhone,metName,metIdCard,metPwd,metRePwd;
+private String mPhone,mName,mIdCard,mPwd,mRePwd;
 private SharedPreferences preferences;// 保存登录状态和cookies
 private RequestQueue requestqueue;
 public String cookieFromResponse;
 private String mHeader;
 private HashMap<String, String> mHashmap;
 private static final int LOG_IN_STATUS = 1;// 登录状态值
-private static final String INPUT_TIP="用户名密码不能为空！";
+private static final String INPUT_TIP="手机号不能为空";
 private static final String CHECK_PWD="两次输入密码不一致，请检查！";
 private static final String URL="https://120.26.83.51/demo/user/register";
 	@Override
@@ -64,7 +64,7 @@ private static final String URL="https://120.26.83.51/demo/user/register";
 				JudgeInput();
 				
 				mHashmap=new HashMap<String, String>();
-				mHashmap.put("username", mUserName);
+				mHashmap.put("username", mPhone);
 				mHashmap.put("password",mPwd);
 				Log.i("signup", mHashmap.toString());
 				StringRequest stringRequest=new StringRequest(Method.POST, URL,new Listener<String>() {
@@ -148,18 +148,33 @@ private static final String URL="https://120.26.83.51/demo/user/register";
 	private void initView()
 	{
 		mbtSignUp=(Button)findViewById(R.id.BT_register);
-		metUserName=(EditText)findViewById(R.id.Et_username);
+		metPhone=(EditText)findViewById(R.id.Et_phone);
+		metName=(EditText)findViewById(R.id.Et_name);
+		metIdCard=(EditText)findViewById(R.id.Et_idcard);
 		metPwd=(EditText)findViewById(R.id.Et_password);
-		metRePwd=(EditText)findViewById(R.id.Et_againpassword);
+		metRePwd=(EditText)findViewById(R.id.Et_again_pwd);
 	}
 	private boolean JudgeInput()
 	{
-		mUserName=metUserName.getText().toString().trim();
+		mPhone=metPhone.getText().toString().trim();
+		mName=metName.getText().toString().trim();
+		mIdCard=metIdCard.getText().toString().trim();
 		mPwd=metPwd.getText().toString().trim();
+		mRePwd=metRePwd.getText().toString().trim();
 		String mRePwd=metRePwd.getText().toString().trim();
-		if(mUserName.equals("")||mPwd.equals(""))
+		if(mPhone.equals(""))
 		{
 			Toast.makeText(getApplicationContext(), INPUT_TIP, Toast.LENGTH_SHORT).show();
+			return false;
+		}
+		else if(mName.equals("")||mIdCard.equals(""))
+		{
+			Toast.makeText(getApplicationContext(), "姓名或身份证号不能为空!", Toast.LENGTH_SHORT).show();
+			return false;
+		}
+		else if(mPwd.equals(""))
+		{
+			Toast.makeText(getApplicationContext(), "密码不能为空！", Toast.LENGTH_SHORT).show();
 			return false;
 		}
 		else if(!mPwd.equals(mRePwd))

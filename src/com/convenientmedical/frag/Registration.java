@@ -238,6 +238,10 @@ public class Registration extends Fragment {
 				// TODO Auto-generated method stub
 				searchMethod = parent.getItemAtPosition(position).toString()
 						.trim();
+				if(searchMethod.equals("医院"))
+				{
+					metSearch.setText("医院名称");
+				}
 				Log.i("method", searchMethod);
 			}
 

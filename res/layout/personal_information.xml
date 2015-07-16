@@ -10,6 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:background="#20AF65" />
+
     <ImageButton
         android:id="@+id/Ib_my_head"
         android:layout_width="70dp"
@@ -59,38 +60,52 @@
         android:scaleType="fitXY"
         android:src="@drawable/bg_header_top" />
 
-    <TextView
-        android:id="@+id/Tv_Basic_informationl"
+    <RelativeLayout
+        android:id="@+id/per"
         android:layout_width="match_parent"
-        android:layout_height="45dp"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/IM_divider_horizontal_line"
-        android:layout_marginLeft="2dp"
-        android:layout_marginRight="2dp"
-        android:layout_marginTop="0dp"
-        android:background="#FFFFFF"
-        android:paddingLeft="15dp"
-        android:paddingTop="10dp"
-        android:text="@string/Basic_information"
-        android:textColor="#4B4B4B"
-        android:textSize="20sp" />
+        android:background="#FFFFFF" >
 
-    <ImageButton
-        android:id="@+id/Ib_Right"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/IM_divider_horizontal_line"
-        android:layout_marginTop="15dp"
-        android:background="@null"
-        android:paddingRight="10dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/rightarrow_black" />
+        <ImageView
+            android:id="@+id/per_image"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/per" />
+
+        <TextView
+            android:id="@+id/Tv_Basic_informationl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="2dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@+id/per_image"
+            android:background="#FFFFFF"
+            android:paddingBottom="10dp"
+            android:text="@string/Basic_information"
+            android:textColor="#4B4B4B"
+            android:textSize="20sp" />
+
+        <ImageButton
+            android:id="@+id/Ib_Right"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="15dp"
+            android:background="@null"
+            android:paddingRight="10dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/rightarrow_black" />
+    </RelativeLayout>
 
     <ImageView
         android:id="@+id/IM_divider_horizontal_line1"
         android:layout_width="match_parent"
         android:layout_height="2dp"
-        android:layout_below="@+id/Tv_Basic_informationl"
+        android:layout_below="@+id/per"
         android:scaleType="fitXY"
         android:src="@drawable/divider_horizontal_line" />
 
@@ -112,38 +127,52 @@
         android:scaleType="fitXY"
         android:src="@drawable/bg_header_top" />
 
-    <TextView
-        android:id="@+id/Tv_History_of_diagnosis_and_treatment"
+    <RelativeLayout
+        android:id="@+id/his"
         android:layout_width="match_parent"
-        android:layout_height="45dp"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/IM_divider_horizontal_line1"
-        android:layout_marginLeft="2dp"
-        android:layout_marginRight="2dp"
-        android:layout_marginTop="0dp"
-        android:background="#FFFFFF"
-        android:paddingLeft="15dp"
-        android:paddingTop="10dp"
-        android:text="@string/History_of_diagnosis_and_treatment"
-        android:textColor="#4B4B4B"
-        android:textSize="20sp" />
+        android:background="#FFFFFF" >
 
-    <ImageButton
-        android:id="@+id/Ib_Right1"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/IM_divider_horizontal_line1"
-        android:layout_marginTop="15dp"
-        android:background="@null"
-        android:paddingRight="10dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/rightarrow_black" />
+        <ImageView
+            android:id="@+id/his_image"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/history" />
+
+        <TextView
+            android:id="@+id/Tv_History_of_diagnosis_and_treatment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="2dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@+id/his_image"
+            android:background="#FFFFFF"
+            android:paddingBottom="10dp"
+            android:text="@string/History_of_diagnosis_and_treatment"
+            android:textColor="#4B4B4B"
+            android:textSize="20sp" />
+
+        <ImageButton
+            android:id="@+id/Ib_Right1"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="15dp"
+            android:background="@null"
+            android:paddingRight="10dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/rightarrow_black" />
+    </RelativeLayout>
 
     <ImageView
         android:id="@+id/IM_divider_horizontal_line2"
         android:layout_width="match_parent"
         android:layout_height="2dp"
-        android:layout_below="@+id/Tv_History_of_diagnosis_and_treatment"
+        android:layout_below="@+id/his"
         android:scaleType="fitXY"
         android:src="@drawable/divider_horizontal_line" />
 
@@ -165,38 +194,52 @@
         android:scaleType="fitXY"
         android:src="@drawable/bg_header_top" />
 
-    <TextView
-        android:id="@+id/Tv_My_social_security_card"
+    <RelativeLayout
+        android:id="@+id/social_card"
         android:layout_width="match_parent"
-        android:layout_height="45dp"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/IM_divider_horizontal_line2"
-        android:layout_marginLeft="2dp"
-        android:layout_marginRight="2dp"
-        android:layout_marginTop="0dp"
-        android:background="#FFFFFF"
-        android:paddingLeft="15dp"
-        android:paddingTop="10dp"
-        android:text="@string/My_social_security_card"
-        android:textColor="#4B4B4B"
-        android:textSize="20sp" />
+        android:background="#FFFFFF" >
 
-    <ImageButton
-        android:id="@+id/Ib_Right2"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/IM_divider_horizontal_line2"
-        android:layout_marginTop="15dp"
-        android:background="@null"
-        android:paddingRight="10dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/rightarrow_black" />
+        <ImageView
+            android:id="@+id/social_image"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/social_card" />
+
+        <TextView
+            android:id="@+id/Tv_My_social_security_card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="2dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@+id/social_image"
+            android:background="#FFFFFF"
+            android:paddingBottom="10dp"
+            android:text="@string/My_social_security_card"
+            android:textColor="#4B4B4B"
+            android:textSize="20sp" />
+
+        <ImageButton
+            android:id="@+id/Ib_Right2"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="15dp"
+            android:background="@null"
+            android:paddingRight="10dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/rightarrow_black" />
+    </RelativeLayout>
 
     <ImageView
         android:id="@+id/IM_divider_horizontal_line3"
         android:layout_width="match_parent"
         android:layout_height="2dp"
-        android:layout_below="@+id/Tv_My_social_security_card"
+        android:layout_below="@+id/social_card"
         android:scaleType="fitXY"
         android:src="@drawable/divider_horizontal_line" />
 
@@ -218,38 +261,52 @@
         android:scaleType="fitXY"
         android:src="@drawable/bg_header_top" />
 
-    <TextView
-        android:id="@+id/Tv_My_bank_card"
+    <RelativeLayout
+        android:id="@+id/bank_card"
         android:layout_width="match_parent"
-        android:layout_height="45dp"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/IM_divider_horizontal_line3"
-        android:layout_marginLeft="2dp"
-        android:layout_marginRight="2dp"
-        android:layout_marginTop="0dp"
-        android:background="#FFFFFF"
-        android:paddingLeft="15dp"
-        android:paddingTop="10dp"
-        android:text="@string/My_bank_card"
-        android:textColor="#4B4B4B"
-        android:textSize="20sp" />
+        android:background="#FFFFFF" >
 
-    <ImageButton
-        android:id="@+id/Ib_Right3"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/IM_divider_horizontal_line3"
-        android:layout_marginTop="15dp"
-        android:background="@null"
-        android:paddingRight="10dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/rightarrow_black" />
+        <ImageView
+            android:id="@+id/bank_image"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/bank_card" />
+
+        <TextView
+            android:id="@+id/Tv_My_bank_card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="2dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@+id/bank_image"
+            android:background="#FFFFFF"
+            android:paddingBottom="10dp"
+            android:text="@string/My_bank_card"
+            android:textColor="#4B4B4B"
+            android:textSize="20sp" />
+
+        <ImageButton
+            android:id="@+id/Ib_Right3"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="15dp"
+            android:background="@null"
+            android:paddingRight="10dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/rightarrow_black" />
+    </RelativeLayout>
 
     <ImageView
         android:id="@+id/IM_divider_horizontal_line4"
         android:layout_width="match_parent"
         android:layout_height="2dp"
-        android:layout_below="@+id/Tv_My_bank_card"
+        android:layout_below="@+id/bank_card"
         android:scaleType="fitXY"
         android:src="@drawable/divider_horizontal_line" />
 
