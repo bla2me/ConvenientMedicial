@@ -54,7 +54,7 @@ public class SelectAreaList extends Activity {
 	}
 
 	private void selectAreaAdapter() {
-		data=SelectAreaData.getDataSource();
+		data=SelectAreaData.getDataSource(0);
 		adapter = new ArrayAdapter<String>(SelectAreaList.this,
 				R.layout.select_list_text, data);
 		listView.setAdapter(adapter);

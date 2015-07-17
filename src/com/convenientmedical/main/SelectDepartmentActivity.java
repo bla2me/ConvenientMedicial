@@ -74,11 +74,29 @@ public class SelectDepartmentActivity extends Activity {
 		data=new ArrayList<String>();
 		String s="[{"+"\"name\""+":\"named\"}]";
 		Log.e("string", s);
-		if(ParseJson.getInstanse().parseSelJson(s).get("name").toString()!=null)
+		
+		/*if(ParseJson.getInstanse().parseSelJson(s).get("name").toString()!=null)
 		{data.add(ParseJson.getInstanse().parseSelJson(s).get("name").toString());}
 		else {
 			data.add("请求失败！");
-		}
+		}*/
+		data.add("中医乳腺病专科");
+		data.add("中医儿科");
+		data.add("中医门诊");
+		data.add("临床心理门诊");
+		data.add("产科门诊");
+		data.add("儿科门诊");
+		data.add("内分泌门诊");
+		data.add("口腔科门诊");
+		data.add("名医门诊");
+		data.add("妇科门诊");
+		data.add("小儿内分泌专科");
+		data.add("心血管门诊");
+		data.add("感染门诊");
+		data.add("普通外科门诊");
+		data.add("甲状腺联合门诊");
+		data.add("皮肤性病科");
+		
 	}
 	private void setListAdapter() {
 //		data=SelectAreaData.getDataSource();

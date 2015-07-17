@@ -62,7 +62,7 @@ public class SelectHosActivity extends Activity {
 	 */
 	private void getHosJson() {
 		mHash = new HashMap<String, String>();
-		mHash.put("province", "浙江");
+		mHash.put("province", "杭州");
 		Log.e("res",mHash.toString());
 		JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
 				Method.POST, URL, new Response.Listener<JSONObject>() {
@@ -107,7 +107,7 @@ public class SelectHosActivity extends Activity {
 	 * 设置list的适配器及数据
 	 */
 	private void setListAdapter() {
-		data = SelectAreaData.getDataSource();
+		data = SelectAreaData.getDataSource(1);
 		adapter = new ArrayAdapter<String>(getApplicationContext(),
 				R.layout.select_list_text, data);
 		listView.setAdapter(adapter);

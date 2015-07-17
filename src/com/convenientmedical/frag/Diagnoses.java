@@ -80,6 +80,9 @@ public class Diagnoses extends Fragment implements OnClickListener {
 		// TODO Auto-generated method stub
 		super.onActivityCreated(savedInstanceState);
 		initView();
+		mlIllDetails.setVisibility(View.GONE);
+		mlCheckDetails.setVisibility(View.GONE);
+		mlMedicalDetails.setVisibility(View.GONE);
 		setCheckData();
 		setMedicalData();
 		setCheckListAdapter();

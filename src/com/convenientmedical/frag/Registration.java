@@ -240,7 +240,11 @@ public class Registration extends Fragment {
 						.trim();
 				if(searchMethod.equals("医院"))
 				{
-					metSearch.setText("医院名称");
+					metSearch.setHint("医院名称");
+				}
+				else if(searchMethod.equals("医生"))
+				{
+					metSearch.setHint("医生姓名");
 				}
 				Log.i("method", searchMethod);
 			}
